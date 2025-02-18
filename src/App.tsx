@@ -11,6 +11,7 @@ import Shaming from "./pages/communities/Shaming";
 import Legal from "./pages/communities/Legal";
 import Insights from "./pages/communities/Insights";
 import Gmac from "./pages/extensions/Gmac";
+import GroupsMonitoring from "./pages/extensions/GroupsMonitoring";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/communities/legal" element={<Legal />} />
             <Route path="/communities/insights" element={<Insights />} />
             <Route path="/extensions/gmac" element={<Gmac />} />
+            <Route path="/extensions/groups-monitoring" element={<GroupsMonitoring />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
