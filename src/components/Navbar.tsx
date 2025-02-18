@@ -5,11 +5,13 @@ import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isCommunitiesOpen, setIsCommunitiesOpen] = useState(false);
+  const [isExtensionsOpen, setIsExtensionsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
     if (isCommunitiesOpen) setIsCommunitiesOpen(false);
+    if (isExtensionsOpen) setIsExtensionsOpen(false);
   };
 
   return (
@@ -48,6 +50,21 @@ const Navbar = () => {
                   <Link to="/communities/insights" 
                         className="block px-4 py-2 hover:bg-gray-100 text-right">
                     תובנות וניהול
+                  </Link>
+                </div>
+              )}
+            </div>
+            <div className="relative group"
+                 onMouseEnter={() => setIsExtensionsOpen(true)}
+                 onMouseLeave={() => setIsExtensionsOpen(false)}>
+              <button className="nav-link">
+                תוספים ואוטומציות
+              </button>
+              {isExtensionsOpen && (
+                <div className="absolute top-full right-0 bg-white shadow-lg rounded-md py-2 min-w-[200px] animate-fadeIn" dir="rtl">
+                  <Link to="/extensions/gmac" 
+                        className="block px-4 py-2 hover:bg-gray-100 text-right">
+                    GMAC
                   </Link>
                 </div>
               )}
@@ -110,6 +127,25 @@ const Navbar = () => {
                       onClick={toggleMobileMenu}
                     >
                       תובנות וניהול
+                    </Link>
+                  </div>
+                )}
+              </div>
+              <div>
+                <button 
+                  onClick={() => setIsExtensionsOpen(!isExtensionsOpen)}
+                  className="w-full px-3 py-2 text-primary hover:bg-gray-100 rounded-md text-right"
+                >
+                  תוספים ואוטומציות
+                </button>
+                {isExtensionsOpen && (
+                  <div className="pr-6 mt-2 space-y-1">
+                    <Link 
+                      to="/extensions/gmac" 
+                      className="block px-3 py-2 text-primary hover:bg-gray-100 rounded-md"
+                      onClick={toggleMobileMenu}
+                    >
+                      GMAC
                     </Link>
                   </div>
                 )}
