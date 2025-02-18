@@ -9,10 +9,10 @@ const Navbar = () => {
     <nav className="bg-white/80 backdrop-blur-md border-b border-gray-200 fixed w-full z-50 animate-slideIn" dir="rtl">
       <div className="classic-container">
         <div className="flex justify-between items-center h-16">
+          <Link to="/" className="font-serif text-xl font-medium order-last">
+            לוגו
+          </Link>
           <div className="flex items-center space-x-8 space-x-reverse">
-            <Link to="/" className="font-serif text-xl font-medium order-first">
-              לוגו
-            </Link>
             <Link to="/" className="nav-link">
               דף הבית
             </Link>
