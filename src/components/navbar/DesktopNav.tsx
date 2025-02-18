@@ -44,6 +44,7 @@ const DesktopNav = ({
   const articleLinks = [
     { to: "/articles/why-not-haredim", label: "למה אסור לכתוב 'חרדים'?" },
     { to: "/articles/war-on-stereotypical-language", label: "מלחמה בשפה סטריאוטיפית" },
+    { to: "/articles/the-haredim", label: "אז מי הם באמת החרדים?" },
   ];
 
   return (
