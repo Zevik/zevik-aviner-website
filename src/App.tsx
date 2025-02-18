@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Shaming from "./pages/communities/Shaming";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />
+            <Route path="/communities/shaming" element={<Shaming />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
