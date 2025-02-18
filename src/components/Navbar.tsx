@@ -106,6 +106,10 @@ const Navbar = () => {
                         className="block px-4 py-2 hover:bg-gray-100 text-right">
                     למה אסור לכתוב 'חרדים'?
                   </Link>
+                  <Link to="/articles/war-on-stereotypical-language" 
+                        className="block px-4 py-2 hover:bg-gray-100 text-right">
+                    מלחמה בשפה סטריאוטיפית
+                  </Link>
                 </div>
               )}
             </div>
@@ -247,6 +251,13 @@ const Navbar = () => {
                       onClick={toggleMobileMenu}
                     >
                       למה אסור לכתוב 'חרדים'?
+                    </Link>
+                    <Link 
+                      to="/articles/war-on-stereotypical-language" 
+                      className="block px-3 py-2 text-primary hover:bg-gray-100 rounded-md"
+                      onClick={toggleMobileMenu}
+                    >
+                      מלחמה בשפה סטריאוטיפית
                     </Link>
                   </div>
                 )}
