@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,6 +51,10 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        mint: {
+          light: "#E5F6F3",
+          DEFAULT: "#40B3A2",
         },
       },
       fontFamily: {
