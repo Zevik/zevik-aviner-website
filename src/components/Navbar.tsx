@@ -54,6 +54,10 @@ const Navbar = () => {
                         className="block px-4 py-2 hover:bg-gray-100 text-right">
                     בית הכנסת הווירטואלי
                   </Link>
+                  <Link to="/communities/virtual-square" 
+                        className="block px-4 py-2 hover:bg-gray-100 text-right">
+                    כיכר השוק הווירטואלית
+                  </Link>
                 </div>
               )}
             </div>
@@ -145,6 +149,13 @@ const Navbar = () => {
                       onClick={toggleMobileMenu}
                     >
                       בית הכנסת הווירטואלי
+                    </Link>
+                    <Link 
+                      to="/communities/virtual-square" 
+                      className="block px-3 py-2 text-primary hover:bg-gray-100 rounded-md"
+                      onClick={toggleMobileMenu}
+                    >
+                      כיכר השוק הווירטואלית
                     </Link>
                   </div>
                 )}
