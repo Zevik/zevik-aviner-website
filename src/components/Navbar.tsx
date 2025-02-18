@@ -28,6 +28,10 @@ const Navbar = () => {
                         className="block px-4 py-2 hover:bg-gray-100 text-right">
                     שיימינג
                   </Link>
+                  <Link to="/communities/legal" 
+                        className="block px-4 py-2 hover:bg-gray-100 text-right">
+                    אחריות משפטית
+                  </Link>
                 </div>
               )}
             </div>

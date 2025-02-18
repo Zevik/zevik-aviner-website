@@ -8,6 +8,7 @@ import Layout from "./components/Layout";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Shaming from "./pages/communities/Shaming";
+import Legal from "./pages/communities/Legal";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />
             <Route path="/communities/shaming" element={<Shaming />} />
+            <Route path="/communities/legal" element={<Legal />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
