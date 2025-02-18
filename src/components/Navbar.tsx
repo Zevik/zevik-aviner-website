@@ -58,6 +58,10 @@ const Navbar = () => {
                         className="block px-4 py-2 hover:bg-gray-100 text-right">
                     כיכר השוק הווירטואלית
                   </Link>
+                  <Link to="/communities/monetization" 
+                        className="block px-4 py-2 hover:bg-gray-100 text-right">
+                    מוניטיזציה למנהלי קבוצות
+                  </Link>
                 </div>
               )}
             </div>
@@ -156,6 +160,13 @@ const Navbar = () => {
                       onClick={toggleMobileMenu}
                     >
                       כיכר השוק הווירטואלית
+                    </Link>
+                    <Link 
+                      to="/communities/monetization" 
+                      className="block px-3 py-2 text-primary hover:bg-gray-100 rounded-md"
+                      onClick={toggleMobileMenu}
+                    >
+                      מוניטיזציה למנהלי קבוצות
                     </Link>
                   </div>
                 )}
