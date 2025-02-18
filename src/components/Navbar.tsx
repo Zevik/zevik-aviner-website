@@ -16,8 +16,12 @@ const Navbar = () => {
     <nav className="bg-white/80 backdrop-blur-md border-b border-gray-200 fixed w-full z-50 animate-slideIn" dir="rtl">
       <div className="classic-container">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="font-serif text-xl font-medium order-last">
-            לוגו
+          <Link to="/" className="order-last">
+            <img 
+              src="/lovable-uploads/b739aeaa-923a-4308-b50c-0f8bbfa3289a.png" 
+              alt="זבינק לוגו" 
+              className="h-8 w-auto"
+            />
           </Link>
 
           {/* Desktop Menu */}
