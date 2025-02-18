@@ -30,7 +30,7 @@ const DesktopNav = ({
     { to: "/communities/legal", label: "אחריות משפטית" },
     { to: "/communities/insights", label: "תובנות וניהול" },
     { to: "/communities/virtual-synagogue", label: "בית הכנסת הווירטואלי" },
-    { to: "/communities/virtual-square", label: "כיכר השוק הווירטואלית" },
+    { to: "/communities/virtual-square", label: "גשרים דיגיטליים" },
     { to: "/communities/monetization", label: "מוניטיזציה למנהלי קבוצות" },
     { to: "/communities/marketing-writing", label: "כתיבה שיווקית" },
   ];
