@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import Shaming from "./pages/communities/Shaming";
 import Legal from "./pages/communities/Legal";
 import Insights from "./pages/communities/Insights";
+import VirtualSynagogue from "./pages/communities/Virtual-Synagogue";
 import Gmac from "./pages/extensions/Gmac";
 import GroupsMonitoring from "./pages/extensions/GroupsMonitoring";
 import ReplyComments from "./pages/extensions/ReplyComments";
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/communities/shaming" element={<Shaming />} />
             <Route path="/communities/legal" element={<Legal />} />
             <Route path="/communities/insights" element={<Insights />} />
+            <Route path="/communities/virtual-synagogue" element={<VirtualSynagogue />} />
             <Route path="/extensions/gmac" element={<Gmac />} />
             <Route path="/extensions/groups-monitoring" element={<GroupsMonitoring />} />
             <Route path="/extensions/reply-comments" element={<ReplyComments />} />

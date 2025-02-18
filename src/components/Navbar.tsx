@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -50,6 +49,10 @@ const Navbar = () => {
                   <Link to="/communities/insights" 
                         className="block px-4 py-2 hover:bg-gray-100 text-right">
                     תובנות וניהול
+                  </Link>
+                  <Link to="/communities/virtual-synagogue" 
+                        className="block px-4 py-2 hover:bg-gray-100 text-right">
+                    בית הכנסת הווירטואלי
                   </Link>
                 </div>
               )}
@@ -135,6 +138,13 @@ const Navbar = () => {
                       onClick={toggleMobileMenu}
                     >
                       תובנות וניהול
+                    </Link>
+                    <Link 
+                      to="/communities/virtual-synagogue" 
+                      className="block px-3 py-2 text-primary hover:bg-gray-100 rounded-md"
+                      onClick={toggleMobileMenu}
+                    >
+                      בית הכנסת הווירטואלי
                     </Link>
                   </div>
                 )}
