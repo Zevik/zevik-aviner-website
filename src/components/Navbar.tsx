@@ -66,6 +66,10 @@ const Navbar = () => {
                         className="block px-4 py-2 hover:bg-gray-100 text-right">
                     GMAC
                   </Link>
+                  <Link to="/extensions/groups-monitoring" 
+                        className="block px-4 py-2 hover:bg-gray-100 text-right">
+                    GroupsMonitoring
+                  </Link>
                 </div>
               )}
             </div>
@@ -146,6 +150,13 @@ const Navbar = () => {
                       onClick={toggleMobileMenu}
                     >
                       GMAC
+                    </Link>
+                    <Link 
+                      to="/extensions/groups-monitoring" 
+                      className="block px-3 py-2 text-primary hover:bg-gray-100 rounded-md"
+                      onClick={toggleMobileMenu}
+                    >
+                      GroupsMonitoring
                     </Link>
                   </div>
                 )}
