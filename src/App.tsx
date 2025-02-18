@@ -12,6 +12,7 @@ import Legal from "./pages/communities/Legal";
 import Insights from "./pages/communities/Insights";
 import Gmac from "./pages/extensions/Gmac";
 import GroupsMonitoring from "./pages/extensions/GroupsMonitoring";
+import ReplyComments from "./pages/extensions/ReplyComments";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/communities/insights" element={<Insights />} />
             <Route path="/extensions/gmac" element={<Gmac />} />
             <Route path="/extensions/groups-monitoring" element={<GroupsMonitoring />} />
+            <Route path="/extensions/reply-comments" element={<ReplyComments />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
