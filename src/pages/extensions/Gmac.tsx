@@ -3,7 +3,7 @@ import React from 'react';
 
 const Gmac = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-secondary/30 to-transparent p-8 pt-32 md:pt-40">
+    <div className="min-h-screen bg-gradient-to-b from-secondary/30 to-transparent p-8 pt-16 md:pt-20">
       <div className="w-full max-w-4xl mx-auto space-y-8">
         
         {/* סקציה 1 - כותרת ראשית */}
