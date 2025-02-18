@@ -8,13 +8,13 @@ const Navbar = () => {
   return (
     <nav className="bg-white/80 backdrop-blur-md border-b border-gray-200 fixed w-full z-50 animate-slideIn">
       <div className="classic-container">
-        <div className="flex flex-row-reverse justify-between items-center h-16">
-          <div className="flex flex-row-reverse space-x-8 space-x-reverse">
-            <Link to="/contact" className="nav-link">
-              צור קשר
-            </Link>
-            <Link to="/about" className="nav-link">
-              אודות
+        <div className="flex justify-between items-center h-16">
+          <Link to="/" className="font-serif text-xl font-medium">
+            לוגו
+          </Link>
+          <div className="flex space-x-8">
+            <Link to="/" className="nav-link">
+              דף הבית
             </Link>
             <div className="relative group"
                  onMouseEnter={() => setIsCommunitiesOpen(true)}
@@ -31,13 +31,13 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <Link to="/" className="nav-link">
-              דף הבית
+            <Link to="/about" className="nav-link">
+              אודות
+            </Link>
+            <Link to="/contact" className="nav-link">
+              צור קשר
             </Link>
           </div>
-          <Link to="/" className="font-serif text-xl font-medium">
-            לוגו
-          </Link>
         </div>
       </div>
     </nav>
