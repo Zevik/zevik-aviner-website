@@ -5,12 +5,14 @@ import { Menu, X } from "lucide-react";
 const Navbar = () => {
   const [isCommunitiesOpen, setIsCommunitiesOpen] = useState(false);
   const [isExtensionsOpen, setIsExtensionsOpen] = useState(false);
+  const [isArticlesOpen, setIsArticlesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
     if (isCommunitiesOpen) setIsCommunitiesOpen(false);
     if (isExtensionsOpen) setIsExtensionsOpen(false);
+    if (isArticlesOpen) setIsArticlesOpen(false);
   };
 
   return (
@@ -88,6 +90,21 @@ const Navbar = () => {
                   <Link to="/extensions/reply-comments" 
                         className="block px-4 py-2 hover:bg-gray-100 text-right">
                     ReplyComments
+                  </Link>
+                </div>
+              )}
+            </div>
+            <div className="relative group"
+                 onMouseEnter={() => setIsArticlesOpen(true)}
+                 onMouseLeave={() => setIsArticlesOpen(false)}>
+              <button className="nav-link">
+                מאמרים
+              </button>
+              {isArticlesOpen && (
+                <div className="absolute top-full right-0 bg-white shadow-lg rounded-md py-2 min-w-[200px] animate-fadeIn" dir="rtl">
+                  <Link to="/articles/why-not-haredim" 
+                        className="block px-4 py-2 hover:bg-gray-100 text-right">
+                    למה אסור לכתוב 'חרדים'?
                   </Link>
                 </div>
               )}
@@ -211,6 +228,25 @@ const Navbar = () => {
                       onClick={toggleMobileMenu}
                     >
                       ReplyComments
+                    </Link>
+                  </div>
+                )}
+              </div>
+              <div>
+                <button 
+                  onClick={() => setIsArticlesOpen(!isArticlesOpen)}
+                  className="w-full px-3 py-2 text-primary hover:bg-gray-100 rounded-md text-right"
+                >
+                  מאמרים
+                </button>
+                {isArticlesOpen && (
+                  <div className="pr-6 mt-2 space-y-1">
+                    <Link 
+                      to="/articles/why-not-haredim" 
+                      className="block px-3 py-2 text-primary hover:bg-gray-100 rounded-md"
+                      onClick={toggleMobileMenu}
+                    >
+                      למה אסור לכתוב 'חרדים'?
                     </Link>
                   </div>
                 )}
