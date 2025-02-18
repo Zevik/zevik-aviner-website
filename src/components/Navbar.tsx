@@ -62,6 +62,10 @@ const Navbar = () => {
                         className="block px-4 py-2 hover:bg-gray-100 text-right">
                     מוניטיזציה למנהלי קבוצות
                   </Link>
+                  <Link to="/communities/marketing-writing" 
+                        className="block px-4 py-2 hover:bg-gray-100 text-right">
+                    כתיבה שיווקית
+                  </Link>
                 </div>
               )}
             </div>
@@ -167,6 +171,13 @@ const Navbar = () => {
                       onClick={toggleMobileMenu}
                     >
                       מוניטיזציה למנהלי קבוצות
+                    </Link>
+                    <Link 
+                      to="/communities/marketing-writing" 
+                      className="block px-3 py-2 text-primary hover:bg-gray-100 rounded-md"
+                      onClick={toggleMobileMenu}
+                    >
+                      כתיבה שיווקית
                     </Link>
                   </div>
                 )}

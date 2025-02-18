@@ -13,6 +13,7 @@ import Insights from "./pages/communities/Insights";
 import VirtualSynagogue from "./pages/communities/Virtual-Synagogue";
 import VirtualSquare from "./pages/communities/Virtual-Square";
 import Monetization from "./pages/communities/Monetization";
+import MarketingWriting from "./pages/communities/MarketingWriting";
 import Gmac from "./pages/extensions/Gmac";
 import GroupsMonitoring from "./pages/extensions/GroupsMonitoring";
 import ReplyComments from "./pages/extensions/ReplyComments";
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/communities/virtual-synagogue" element={<VirtualSynagogue />} />
             <Route path="/communities/virtual-square" element={<VirtualSquare />} />
             <Route path="/communities/monetization" element={<Monetization />} />
+            <Route path="/communities/marketing-writing" element={<MarketingWriting />} />
             <Route path="/extensions/gmac" element={<Gmac />} />
             <Route path="/extensions/groups-monitoring" element={<GroupsMonitoring />} />
             <Route path="/extensions/reply-comments" element={<ReplyComments />} />
