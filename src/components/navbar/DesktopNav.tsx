@@ -1,0 +1,93 @@
+
+import { Link } from "react-router-dom";
+import NavDropdown from "./NavDropdown";
+
+interface DesktopNavProps {
+  isCommunitiesOpen: boolean;
+  isExtensionsOpen: boolean;
+  isArticlesOpen: boolean;
+  onCommunitiesEnter: () => void;
+  onCommunitiesLeave: () => void;
+  onExtensionsEnter: () => void;
+  onExtensionsLeave: () => void;
+  onArticlesEnter: () => void;
+  onArticlesLeave: () => void;
+}
+
+const DesktopNav = ({
+  isCommunitiesOpen,
+  isExtensionsOpen,
+  isArticlesOpen,
+  onCommunitiesEnter,
+  onCommunitiesLeave,
+  onExtensionsEnter,
+  onExtensionsLeave,
+  onArticlesEnter,
+  onArticlesLeave,
+}: DesktopNavProps) => {
+  const communityLinks = [
+    { to: "/communities/shaming", label: "שיימינג" },
+    { to: "/communities/legal", label: "אחריות משפטית" },
+    { to: "/communities/insights", label: "תובנות וניהול" },
+    { to: "/communities/virtual-synagogue", label: "בית הכנסת הווירטואלי" },
+    { to: "/communities/virtual-square", label: "כיכר השוק הווירטואלית" },
+    { to: "/communities/monetization", label: "מוניטיזציה למנהלי קבוצות" },
+    { to: "/communities/marketing-writing", label: "כתיבה שיווקית" },
+  ];
+
+  const extensionLinks = [
+    { to: "/extensions/gmac", label: "GMAC" },
+    { to: "/extensions/groups-monitoring", label: "GroupsMonitoring" },
+    { to: "/extensions/reply-comments", label: "ReplyComments" },
+  ];
+
+  const articleLinks = [
+    { to: "/articles/why-not-haredim", label: "למה אסור לכתוב 'חרדים'?" },
+    { to: "/articles/war-on-stereotypical-language", label: "מלחמה בשפה סטריאוטיפית" },
+  ];
+
+  return (
+    <div className="hidden md:flex items-center space-x-8 space-x-reverse">
+      <Link to="/" className="nav-link">
+        דף הבית
+      </Link>
+      
+      <div className="relative group"
+           onMouseEnter={onCommunitiesEnter}
+           onMouseLeave={onCommunitiesLeave}>
+        <button className="nav-link">
+          עולם הקהילות
+        </button>
+        <NavDropdown isOpen={isCommunitiesOpen} links={communityLinks} />
+      </div>
+
+      <div className="relative group"
+           onMouseEnter={onExtensionsEnter}
+           onMouseLeave={onExtensionsLeave}>
+        <button className="nav-link">
+          תוספים ואוטומציות
+        </button>
+        <NavDropdown isOpen={isExtensionsOpen} links={extensionLinks} />
+      </div>
+
+      <div className="relative group"
+           onMouseEnter={onArticlesEnter}
+           onMouseLeave={onArticlesLeave}>
+        <button className="nav-link">
+          מאמרים
+        </button>
+        <NavDropdown isOpen={isArticlesOpen} links={articleLinks} />
+      </div>
+
+      <Link to="/about" className="nav-link">
+        אודות
+      </Link>
+      
+      <Link to="/contact" className="nav-link">
+        צור קשר
+      </Link>
+    </div>
+  );
+};
+
+export default DesktopNav;
