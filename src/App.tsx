@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,6 +17,7 @@ import MarketingWriting from "./pages/communities/MarketingWriting";
 import WhyNotHaredim from "./pages/articles/WhyNotHaredim";
 import WarOnStereotypicalLanguage from "./pages/articles/WarOnStereotypicalLanguage";
 import TheHaredim from "./pages/articles/TheHaredim";
+import LanguageOfStereotypes from "./pages/articles/LanguageOfStereotypes";
 import SmallBusiness from "./pages/independent/SmallBusiness";
 import DepositFund from "./pages/independent/DepositFund";
 import CashFund from "./pages/independent/CashFund";
@@ -48,6 +50,7 @@ const App = () => (
             <Route path="/articles/why-not-haredim" element={<WhyNotHaredim />} />
             <Route path="/articles/war-on-stereotypical-language" element={<WarOnStereotypicalLanguage />} />
             <Route path="/articles/the-haredim" element={<TheHaredim />} />
+            <Route path="/articles/language-of-stereotypes" element={<LanguageOfStereotypes />} />
             <Route path="/independent/small-business" element={<SmallBusiness />} />
             <Route path="/independent/deposit-fund" element={<DepositFund />} />
             <Route path="/independent/cash-fund" element={<CashFund />} />
