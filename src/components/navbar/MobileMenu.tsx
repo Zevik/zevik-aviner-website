@@ -7,9 +7,11 @@ interface MobileMenuProps {
   isCommunitiesOpen: boolean;
   isExtensionsOpen: boolean;
   isArticlesOpen: boolean;
+  isIndependentOpen: boolean;
   onToggleCommunities: () => void;
   onToggleExtensions: () => void;
   onToggleArticles: () => void;
+  onToggleIndependent: () => void;
   onCloseMenu: () => void;
 }
 
@@ -18,9 +20,11 @@ const MobileMenu = ({
   isCommunitiesOpen,
   isExtensionsOpen,
   isArticlesOpen,
+  isIndependentOpen,
   onToggleCommunities,
   onToggleExtensions,
   onToggleArticles,
+  onToggleIndependent,
   onCloseMenu,
 }: MobileMenuProps) => {
   if (!isOpen) return null;
@@ -71,6 +75,20 @@ const MobileMenu = ({
             <>
               <MobileNavItem to="/articles/why-not-haredim" label="למה אסור לכתוב 'חרדים'?" onClick={onCloseMenu} />
               <MobileNavItem to="/articles/war-on-stereotypical-language" label="מלחמה בשפה סטריאוטיפית" onClick={onCloseMenu} />
+              <MobileNavItem to="/articles/the-haredim" label="אז מי הם באמת החרדים?" onClick={onCloseMenu} />
+            </>
+          )}
+        </MobileNavItem>
+
+        <MobileNavItem 
+          label="עצמאים ועצמאיות"
+          onClick={onToggleIndependent}
+          isSubmenu={true}
+        >
+          {isIndependentOpen && (
+            <>
+              <MobileNavItem to="/independent/small-business" label="עוסק זעיר" onClick={onCloseMenu} />
+              <MobileNavItem to="/independent/deposit-fund" label="קרן השתלמות" onClick={onCloseMenu} />
             </>
           )}
         </MobileNavItem>
