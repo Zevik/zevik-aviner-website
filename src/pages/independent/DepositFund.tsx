@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-const DepositFund = () => {
+const DepositFund: React.FC = () => {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden p-4">
       <div className="w-full max-w-4xl mx-auto">
