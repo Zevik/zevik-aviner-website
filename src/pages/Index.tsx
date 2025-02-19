@@ -8,35 +8,35 @@ const categories = [
     description: "כל מה שצריך לדעת על ניהול קהילות",
     icon: Globe,
     link: "/communities/insights",
-    color: "bg-primary/10",
+    color: "bg-accent/10",
   },
   {
     title: "תוספים לפייסבוק",
     description: "כלים שימושיים לניהול בפייסבוק",
     icon: Facebook,
     link: "/facebook-tools",
-    color: "bg-blue-50",
+    color: "bg-accent/10",
   },
   {
     title: "עצמאים ועצמאיות",
     description: "מדריכים וטיפים לניהול עסק",
     icon: Users,
     link: "/freelancers",
-    color: "bg-green-50",
+    color: "bg-accent/10",
   },
   {
     title: "מאמרים",
     description: "תוכן מקצועי ומעמיק",
     icon: BookOpen,
     link: "/articles",
-    color: "bg-purple-50",
+    color: "bg-accent/10",
   },
   {
     title: "כתבות",
     description: "חדשות ועדכונים שוטפים",
     icon: FileText,
     link: "/posts",
-    color: "bg-orange-50",
+    color: "bg-accent/10",
   },
 ];
 
@@ -47,10 +47,10 @@ const Index = () => {
       <section className="classic-section bg-gradient-to-b from-secondary/30 to-transparent">
         <div className="classic-container text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fadeIn">
-            הדרך שלך להצלחה בניהול קהילות
+            קהילות, אוטומציות ובינה מלאכותית
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
-            הכלים, הידע והקהילה שיעזרו לך להפוך למנהל/ת קהילה מקצועי/ת
+            הכלים המתקדמים והידע המקצועי שיעזרו לך להוביל קהילות בעידן הדיגיטלי
           </p>
         </div>
       </section>
@@ -89,7 +89,6 @@ const Index = () => {
             מאמרים אחרונים
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Placeholder for articles - will be populated later */}
             {[1, 2, 3].map((_, index) => (
               <div 
                 key={index}
