@@ -60,9 +60,11 @@ const Navbar = () => {
           isCommunitiesOpen={isCommunitiesOpen}
           isExtensionsOpen={isExtensionsOpen}
           isArticlesOpen={isArticlesOpen}
+          isIndependentOpen={isIndependentOpen}
           onToggleCommunities={() => setIsCommunitiesOpen(!isCommunitiesOpen)}
           onToggleExtensions={() => setIsExtensionsOpen(!isExtensionsOpen)}
           onToggleArticles={() => setIsArticlesOpen(!isArticlesOpen)}
+          onToggleIndependent={() => setIsIndependentOpen(!isIndependentOpen)}
           onCloseMenu={toggleMobileMenu}
         />
       </div>
