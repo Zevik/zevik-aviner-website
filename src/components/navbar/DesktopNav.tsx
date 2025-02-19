@@ -59,6 +59,7 @@ const DesktopNav = ({
     { to: "/independent/practical-guide-global-contract", label: "חוזה גלובלי" },
     { to: "/independent/worker-employer-relations", label: "יחסי עובד-מעביד" },
     { to: "/independent/self-employed-in-israel", label: "עצמאים בישראל" },
+    { to: "/independent/end-employment", label: "סיום העסקה" },
   ];
 
   return (

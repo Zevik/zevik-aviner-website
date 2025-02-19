@@ -25,6 +25,7 @@ import Gmac from "./pages/extensions/Gmac";
 import GroupsMonitoring from "./pages/extensions/GroupsMonitoring";
 import ReplyComments from "./pages/extensions/ReplyComments";
 import SelfEmployedInIsrael from "./pages/independent/SelfEmployedInIsrael";
+import EndEmployment from "./pages/independent/EndEmployment";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +54,7 @@ const App = () => (
             <Route path="/independent/practical-guide-global-contract" element={<PracticalGuideGlobalContract />} />
             <Route path="/independent/worker-employer-relations" element={<WorkerEmployerRelations />} />
             <Route path="/independent/self-employed-in-israel" element={<SelfEmployedInIsrael />} />
+            <Route path="/independent/end-employment" element={<EndEmployment />} />
             <Route path="/extensions/gmac" element={<Gmac />} />
             <Route path="/extensions/groups-monitoring" element={<GroupsMonitoring />} />
             <Route path="/extensions/reply-comments" element={<ReplyComments />} />
