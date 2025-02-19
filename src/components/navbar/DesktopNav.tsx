@@ -55,7 +55,6 @@ const DesktopNav = ({
 
   const independentLinks = [
     { to: "/independent/small-business", label: "עוסק זעיר" },
-    { to: "/independent/deposit-fund", label: "קרן השתלמות" },
   ];
 
   return (
