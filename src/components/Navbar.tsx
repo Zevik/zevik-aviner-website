@@ -10,10 +10,12 @@ const Navbar = () => {
     isCommunitiesOpen,
     isExtensionsOpen,
     isArticlesOpen,
+    isIndependentOpen,
     isMobileMenuOpen,
     setIsCommunitiesOpen,
     setIsExtensionsOpen,
     setIsArticlesOpen,
+    setIsIndependentOpen,
     toggleMobileMenu,
   } = useNavbar();
 
@@ -33,12 +35,15 @@ const Navbar = () => {
             isCommunitiesOpen={isCommunitiesOpen}
             isExtensionsOpen={isExtensionsOpen}
             isArticlesOpen={isArticlesOpen}
+            isIndependentOpen={isIndependentOpen}
             onCommunitiesEnter={() => setIsCommunitiesOpen(true)}
             onCommunitiesLeave={() => setIsCommunitiesOpen(false)}
             onExtensionsEnter={() => setIsExtensionsOpen(true)}
             onExtensionsLeave={() => setIsExtensionsOpen(false)}
             onArticlesEnter={() => setIsArticlesOpen(true)}
             onArticlesLeave={() => setIsArticlesOpen(false)}
+            onIndependentEnter={() => setIsIndependentOpen(true)}
+            onIndependentLeave={() => setIsIndependentOpen(false)}
           />
 
           <button 

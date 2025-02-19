@@ -6,24 +6,30 @@ interface DesktopNavProps {
   isCommunitiesOpen: boolean;
   isExtensionsOpen: boolean;
   isArticlesOpen: boolean;
+  isIndependentOpen: boolean;
   onCommunitiesEnter: () => void;
   onCommunitiesLeave: () => void;
   onExtensionsEnter: () => void;
   onExtensionsLeave: () => void;
   onArticlesEnter: () => void;
   onArticlesLeave: () => void;
+  onIndependentEnter: () => void;
+  onIndependentLeave: () => void;
 }
 
 const DesktopNav = ({
   isCommunitiesOpen,
   isExtensionsOpen,
   isArticlesOpen,
+  isIndependentOpen,
   onCommunitiesEnter,
   onCommunitiesLeave,
   onExtensionsEnter,
   onExtensionsLeave,
   onArticlesEnter,
   onArticlesLeave,
+  onIndependentEnter,
+  onIndependentLeave,
 }: DesktopNavProps) => {
   const communityLinks = [
     { to: "/communities/shaming", label: "שיימינג" },
@@ -84,11 +90,13 @@ const DesktopNav = ({
         <NavDropdown isOpen={isArticlesOpen} links={articleLinks} />
       </div>
 
-      <div className="relative group">
+      <div className="relative group"
+           onMouseEnter={onIndependentEnter}
+           onMouseLeave={onIndependentLeave}>
         <button className="nav-link">
           עצמאים ועצמאיות
         </button>
-        <NavDropdown isOpen={false} links={independentLinks} />
+        <NavDropdown isOpen={isIndependentOpen} links={independentLinks} />
       </div>
 
       <Link to="/about" className="nav-link">
