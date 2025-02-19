@@ -21,6 +21,7 @@ import SmallBusiness from "./pages/independent/SmallBusiness";
 import DepositFund from "./pages/independent/DepositFund";
 import CashFund from "./pages/independent/CashFund";
 import PracticalGuideGlobalContract from "./pages/independent/PracticalGuideGlobalContract";
+import WorkerEmployerRelations from "./pages/independent/WorkerEmployerRelations";
 import Gmac from "./pages/extensions/Gmac";
 import GroupsMonitoring from "./pages/extensions/GroupsMonitoring";
 import ReplyComments from "./pages/extensions/ReplyComments";
@@ -50,6 +51,7 @@ const App = () => (
             <Route path="/independent/deposit-fund" element={<DepositFund />} />
             <Route path="/independent/cash-fund" element={<CashFund />} />
             <Route path="/independent/practical-guide-global-contract" element={<PracticalGuideGlobalContract />} />
+            <Route path="/independent/worker-employer-relations" element={<WorkerEmployerRelations />} />
             <Route path="/extensions/gmac" element={<Gmac />} />
             <Route path="/extensions/groups-monitoring" element={<GroupsMonitoring />} />
             <Route path="/extensions/reply-comments" element={<ReplyComments />} />

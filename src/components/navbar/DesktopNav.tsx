@@ -57,6 +57,7 @@ const DesktopNav = ({
     { to: "/independent/deposit-fund", label: "קרן השתלמות" },
     { to: "/independent/cash-fund", label: "קרן כספית" },
     { to: "/independent/practical-guide-global-contract", label: "חוזה גלובלי" },
+    { to: "/independent/worker-employer-relations", label: "יחסי עובד-מעביד" },
   ];
 
   return (
