@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import NavDropdown from "./NavDropdown";
 
@@ -57,6 +56,7 @@ const DesktopNav = ({
     { to: "/independent/small-business", label: "עוסק זעיר" },
     { to: "/independent/deposit-fund", label: "קרן השתלמות" },
     { to: "/independent/cash-fund", label: "קרן כספית" },
+    { to: "/independent/practical-guide-global-contract", label: "חוזה גלובלי" },
   ];
 
   return (

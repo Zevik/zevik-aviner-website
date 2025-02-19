@@ -90,6 +90,7 @@ const MobileMenu = ({
               <MobileNavItem to="/independent/small-business" label="עוסק זעיר" onClick={onCloseMenu} />
               <MobileNavItem to="/independent/deposit-fund" label="קרן השתלמות" onClick={onCloseMenu} />
               <MobileNavItem to="/independent/cash-fund" label="קרן כספית" onClick={onCloseMenu} />
+              <MobileNavItem to="/independent/practical-guide-global-contract" label="חוזה גלובלי" onClick={onCloseMenu} />
             </>
           )}
         </MobileNavItem>
