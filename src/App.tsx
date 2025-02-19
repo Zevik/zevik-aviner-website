@@ -17,7 +17,7 @@ import MarketingWriting from "./pages/communities/MarketingWriting";
 import WhyNotHaredim from "./pages/articles/WhyNotHaredim";
 import WarOnStereotypicalLanguage from "./pages/articles/WarOnStereotypicalLanguage";
 import TheHaredim from "./pages/articles/TheHaredim";
-import SmallBusiness from "./pages/independent/SmallBusiness";
+import SmallBusiness from "./pages/independent/self-employed/SmallBusiness";
 import Gmac from "./pages/extensions/Gmac";
 import GroupsMonitoring from "./pages/extensions/GroupsMonitoring";
 import ReplyComments from "./pages/extensions/ReplyComments";
@@ -43,7 +43,7 @@ const App = () => (
             <Route path="/articles/why-not-haredim" element={<WhyNotHaredim />} />
             <Route path="/articles/war-on-stereotypical-language" element={<WarOnStereotypicalLanguage />} />
             <Route path="/articles/the-haredim" element={<TheHaredim />} />
-            <Route path="/independent/small-business" element={<SmallBusiness />} />
+            <Route path="/independent/self-employed/small-business" element={<SmallBusiness />} />
             <Route path="/extensions/gmac" element={<Gmac />} />
             <Route path="/extensions/groups-monitoring" element={<GroupsMonitoring />} />
             <Route path="/extensions/reply-comments" element={<ReplyComments />} />
