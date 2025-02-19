@@ -8,7 +8,7 @@ const CashFund: React.FC = () => {
         <h1 className="text-3xl font-bold mb-8 text-primary text-center">הכי הרבה כסף שתעשו בחיים בחצי דקה</h1>
         
         <div className="content-box">
-          <h2 className="text-xl font-semibold text-primary">מעו"ש לקרן כספית בחצי דקה</h2>
+          <h2 className="text-xl font-semibold text-primary mb-4">מעו"ש לקרן כספית בחצי דקה</h2>
           <p>היכנסו לחשבון הבנק שלכם וראו אם יש לכם פלוס בעובר ושב יותר ממה שאתם צריכים בחודש.</p>
           <p>עכשיו תחפשו בתפריט "שוק ההון" ותעבירו סכום לקרן כספית.</p>
           <p>זהו, פשוט, סיימתם.</p>
@@ -21,10 +21,10 @@ const CashFund: React.FC = () => {
         </div>
 
         <div className="content-box">
-          <h2 className="text-xl font-semibold text-primary">מה זה?</h2>
+          <h2 className="text-xl font-semibold text-primary mb-4">מה זה?</h2>
           <p>ואם אתם שואלים מה זה בכלל קרן כספית? זה פשוט קרן שלוקחת את הכסף שלכם ומשקיעה אותו בדברים הכי בטוחים שיש - כמו פיקדונות בבנק ואגרות חוב של המדינה.</p>
           
-          <h2 className="text-xl font-semibold text-primary mt-6">יש לזה כמה יתרונות ממש טובים:</h2>
+          <h2 className="text-xl font-semibold text-primary mt-6 mb-4">יש לזה כמה יתרונות ממש טובים:</h2>
           <ul className="list-disc list-inside space-y-2">
             <li>הכסף שלכם בטוח כי משקיעים רק בדברים בטוחים</li>
             <li>אפשר להוציא את הכסף בכל יום שהבורסה פתוחה</li>
