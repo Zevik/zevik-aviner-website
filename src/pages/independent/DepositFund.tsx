@@ -3,7 +3,7 @@ import React from 'react';
 
 const DepositFundForFreelancers = () => {
   return (
-    <div className="min-h-screen bg-secondary/20 overflow-x-hidden p-4">
+    <div className="min-h-screen bg-white overflow-x-hidden p-4">
       <div className="w-full max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-8 text-primary text-center mt-8">המתנה הכי שווה שקיבלו העצמאים - קרן השתלמות</h1>
         
