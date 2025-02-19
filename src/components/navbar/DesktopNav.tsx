@@ -47,6 +47,10 @@ const DesktopNav = ({
     { to: "/articles/the-haredim", label: "אז מי הם באמת החרדים?" },
   ];
 
+  const independentLinks = [
+    { to: "/independent/small-business", label: "עוסק זעיר" },
+  ];
+
   return (
     <div className="hidden md:flex items-center space-x-8 space-x-reverse">
       <Link to="/" className="nav-link">
@@ -78,6 +82,12 @@ const DesktopNav = ({
           מאמרים
         </button>
         <NavDropdown isOpen={isArticlesOpen} links={articleLinks} />
+      </div>
+
+      <div className="relative group">
+        <Link to="/independent/small-business" className="nav-link">
+          עצמאים ועצמאיות
+        </Link>
       </div>
 
       <Link to="/about" className="nav-link">
