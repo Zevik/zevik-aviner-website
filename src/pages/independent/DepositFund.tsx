@@ -3,9 +3,9 @@ import React from 'react';
 
 const DepositFund: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden p-4">
-      <div className="w-full max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8 text-primary text-center mt-8">המתנה הכי שווה שקיבלו העצמאים - קרן השתלמות</h1>
+    <div className="min-h-screen bg-mint-light pt-24 pb-12 px-4">
+      <div className="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8 mb-8">
+        <h1 className="text-3xl font-bold mb-8 text-primary text-center">המתנה הכי שווה שקיבלו העצמאים - קרן השתלמות</h1>
         
         <div className="content-box">
           <h2 className="text-xl font-semibold text-primary">שתי המתנות שקיבלתם</h2>
