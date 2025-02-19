@@ -48,7 +48,7 @@ const DesktopNav = ({
   ];
 
   const independentLinks = [
-    { to: "/independent/self-employed/small-business", label: "עוסק זעיר" },
+    { to: "/independent/small-business", label: "עוסק זעיר" },
   ];
 
   return (
@@ -85,9 +85,10 @@ const DesktopNav = ({
       </div>
 
       <div className="relative group">
-        <Link to="/independent/self-employed/small-business" className="nav-link">
+        <button className="nav-link">
           עצמאים ועצמאיות
-        </Link>
+        </button>
+        <NavDropdown isOpen={false} links={independentLinks} />
       </div>
 
       <Link to="/about" className="nav-link">
