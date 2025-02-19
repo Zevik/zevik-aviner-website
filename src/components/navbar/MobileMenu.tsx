@@ -92,6 +92,7 @@ const MobileMenu = ({
               <MobileNavItem to="/independent/cash-fund" label="קרן כספית" onClick={onCloseMenu} />
               <MobileNavItem to="/independent/practical-guide-global-contract" label="חוזה גלובלי" onClick={onCloseMenu} />
               <MobileNavItem to="/independent/worker-employer-relations" label="יחסי עובד-מעביד" onClick={onCloseMenu} />
+              <MobileNavItem to="/independent/self-employed-in-israel" label="עצמאים בישראל" onClick={onCloseMenu} />
             </>
           )}
         </MobileNavItem>

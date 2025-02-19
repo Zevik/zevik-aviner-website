@@ -58,6 +58,7 @@ const DesktopNav = ({
     { to: "/independent/cash-fund", label: "קרן כספית" },
     { to: "/independent/practical-guide-global-contract", label: "חוזה גלובלי" },
     { to: "/independent/worker-employer-relations", label: "יחסי עובד-מעביד" },
+    { to: "/independent/self-employed-in-israel", label: "עצמאים בישראל" },
   ];
 
   return (
