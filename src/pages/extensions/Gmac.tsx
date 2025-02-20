@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Gmac = () => {
@@ -6,7 +5,7 @@ const Gmac = () => {
     <div className="min-h-screen bg-gradient-to-b from-secondary/30 to-transparent p-8 pt-16 md:pt-20">
       <div className="w-full max-w-4xl mx-auto space-y-8">
         
-        {/* סקציה 1 - כותרת ראשית */}
+        {/* סקצ��ה 1 - כותרת ראשית */}
         <section className="text-center mb-24">
           <h1 className="text-4xl md:text-5xl font-bold text-primary">GMAC - שומר התשובות לשאלות הכניסה לקבוצה</h1>
           <p className="text-xl mt-4 text-gray-600">התוסף הפופולרי למנהלי ומנהלות קבוצות פייסבוק</p>
@@ -95,7 +94,30 @@ const Gmac = () => {
           </div>
         </section>
 
-        {/* סקציה 8 - שאלות ותשובות */}
+        {/* סקציה 8 - צור קשר */}
+        <section className="bg-white/40 backdrop-blur-sm p-8 rounded-lg shadow-sm text-center">
+          <h2 className="text-2xl font-semibold mb-4 text-primary">צרו קשר</h2>
+          <div className="flex flex-col items-center space-y-4">
+            <a
+              href="https://wa.me/972546609385"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors duration-300 shadow-sm hover:shadow-md w-48"
+            >
+              ליצירת קשר בוואטסאפ
+            </a>
+            <a
+              href="mailto:fb.tools.zevik@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors duration-300 shadow-sm hover:shadow-md w-48"
+            >
+              ליצירת קשר באימייל
+            </a>
+          </div>
+        </section>
+
+        {/* סקציה 9 - שאלות ותשובות */}
         <section className="bg-white/40 backdrop-blur-sm p-8 rounded-lg shadow-sm">
           <h2 className="text-2xl font-semibold mb-4 text-primary">שאלות ותשובות נפוצות</h2>
           <div className="space-y-4">

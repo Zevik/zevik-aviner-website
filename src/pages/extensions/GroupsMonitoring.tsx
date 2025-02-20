@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const GroupsMonitoring = () => {
@@ -80,7 +79,30 @@ const GroupsMonitoring = () => {
           </div>
         </section>
 
-        {/* סקציה 7 */}
+        {/* סקציה 7 - צור קשר */}
+        <section className="bg-white/40 backdrop-blur-sm p-8 rounded-lg shadow-sm text-center">
+          <h2 className="text-2xl font-semibold mb-4 text-primary">צרו קשר</h2>
+          <div className="flex flex-col items-center space-y-4">
+            <a
+              href="https://wa.me/972546609385"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors duration-300 shadow-sm hover:shadow-md w-48"
+            >
+              ליצירת קשר בוואטסאפ
+            </a>
+            <a
+              href="mailto:fb.tools.zevik@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors duration-300 shadow-sm hover:shadow-md w-48"
+            >
+              ליצירת קשר באימייל
+            </a>
+          </div>
+        </section>
+
+        {/* סקציה 8 */}
         <section className="bg-white/40 backdrop-blur-sm p-8 rounded-lg shadow-sm">
           <h2 className="text-2xl font-semibold mb-4 text-primary">שאלות ותשובות נפוצות</h2>
           <div className="space-y-4">
