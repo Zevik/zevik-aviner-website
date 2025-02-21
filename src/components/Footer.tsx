@@ -7,9 +7,12 @@ const Footer = () => {
       <div className="classic-container py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="font-serif text-lg font-medium mb-4">לוגו</h3>
+            <h3 className="font-serif text-lg font-medium mb-4">על האתר</h3>
             <p className="text-gray-600">
-              טקסט תיאור קצר של האתר או העסק שלך יכול להופיע כאן.
+              ניהול וייעוץ לקהילות דיגיטליות
+            </p>
+            <p className="text-gray-600 mt-2">
+              כלים, מאמרים וידע מקצועי לניהול קהילות
             </p>
           </div>
           <div>
@@ -29,9 +32,27 @@ const Footer = () => {
           <div>
             <h3 className="font-serif text-lg font-medium mb-4">צור קשר</h3>
             <div className="space-y-2 text-gray-600">
-              <p>טלפון: 123-456-789</p>
-              <p>אימייל: info@example.com</p>
-              <p>כתובת: רחוב הדוגמה 123, תל אביב</p>
+              <p>
+                וואטסאפ:{" "}
+                <a 
+                  href="https://wa.me/972546609385" 
+                  className="text-primary hover:text-primary/80 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  054-6609385
+                </a>
+              </p>
+              <p>
+                אימייל:{" "}
+                <a 
+                  href="mailto:fb.tools.zevik@gmail.com"
+                  className="text-primary hover:text-primary/80 transition-colors"
+                >
+                  fb.tools.zevik@gmail.com
+                </a>
+              </p>
+              <p>כתובת: ישראל</p>
             </div>
           </div>
         </div>
