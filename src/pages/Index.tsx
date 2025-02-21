@@ -50,7 +50,7 @@ const Index = () => {
             קהילות, אוטומציות ובינה מלאכותית
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
-            הכלים המתקדמים והידע המקצועי שיעזרו לך להוביל קהילות בעידן הדיגיטלי
+            מאמרים, טיפים, תוכנות וסדנאות
           </p>
         </div>
       </section>
