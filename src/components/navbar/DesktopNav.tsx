@@ -7,6 +7,7 @@ interface DesktopNavProps {
   isExtensionsOpen: boolean;
   isArticlesOpen: boolean;
   isIndependentOpen: boolean;
+  isAIOpen: boolean;
   onCommunitiesEnter: () => void;
   onCommunitiesLeave: () => void;
   onExtensionsEnter: () => void;
@@ -15,6 +16,8 @@ interface DesktopNavProps {
   onArticlesLeave: () => void;
   onIndependentEnter: () => void;
   onIndependentLeave: () => void;
+  onAIEnter: () => void;
+  onAILeave: () => void;
 }
 
 const DesktopNav = ({
@@ -22,6 +25,7 @@ const DesktopNav = ({
   isExtensionsOpen,
   isArticlesOpen,
   isIndependentOpen,
+  isAIOpen,
   onCommunitiesEnter,
   onCommunitiesLeave,
   onExtensionsEnter,
@@ -30,6 +34,8 @@ const DesktopNav = ({
   onArticlesLeave,
   onIndependentEnter,
   onIndependentLeave,
+  onAIEnter,
+  onAILeave,
 }: DesktopNavProps) => {
   const communityLinks = [
     { to: "/communities/shaming", label: "שיימינג" },
@@ -113,15 +119,13 @@ const DesktopNav = ({
         <NavDropdown isOpen={isIndependentOpen} links={independentLinks} />
       </div>
 
-      <div className="relative group hover:opacity-100">
-        <div className="relative group"
-             onMouseEnter={onIndependentEnter}
-             onMouseLeave={onIndependentLeave}>
-          <button className="nav-link">
-            בינה מלאכותית
-          </button>
-          <NavDropdown isOpen={isIndependentOpen} links={aiLinks} />
-        </div>
+      <div className="relative group"
+           onMouseEnter={onAIEnter}
+           onMouseLeave={onAILeave}>
+        <button className="nav-link">
+          בינה מלאכותית
+        </button>
+        <NavDropdown isOpen={isAIOpen} links={aiLinks} />
       </div>
 
       <Link to="/about" className="nav-link">
