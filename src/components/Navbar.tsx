@@ -38,6 +38,7 @@ const Navbar = () => {
             isExtensionsOpen={isExtensionsOpen}
             isArticlesOpen={isArticlesOpen}
             isIndependentOpen={isIndependentOpen}
+            isAIOpen={isAIOpen}
             onCommunitiesEnter={() => setIsCommunitiesOpen(true)}
             onCommunitiesLeave={() => setIsCommunitiesOpen(false)}
             onExtensionsEnter={() => setIsExtensionsOpen(true)}
@@ -46,6 +47,8 @@ const Navbar = () => {
             onArticlesLeave={() => setIsArticlesOpen(false)}
             onIndependentEnter={() => setIsIndependentOpen(true)}
             onIndependentLeave={() => setIsIndependentOpen(false)}
+            onAIEnter={() => setIsAIOpen(true)}
+            onAILeave={() => setIsAIOpen(false)}
           />
 
           <button 
