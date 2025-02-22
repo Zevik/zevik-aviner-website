@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import NavDropdown from "./NavDropdown";
 
@@ -76,6 +75,7 @@ const DesktopNav = ({
     { to: "/ai/video-generation", label: "יצירת סרטונים" },
     { to: "/ai/presentations", label: "יצירת מצגות" },
     { to: "/ai/development-tools", label: "כלי פיתוח" },
+    { to: "/ai/job-market", label: "שוק התעסוקה" },
   ];
 
   return (

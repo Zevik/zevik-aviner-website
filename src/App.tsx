@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -34,6 +33,7 @@ import AIImageGeneration from "./pages/ai/AIImageGeneration";
 import AIVideoGeneration from "./pages/ai/AIVideoGeneration";
 import AIPresentations from "./pages/ai/AIPresentations";
 import AIDevelopmentTools from "./pages/ai/AIDevelopmentTools";
+import AIJobMarket from "./pages/ai/AIJobMarket";
 
 const queryClient = new QueryClient();
 
@@ -73,6 +73,7 @@ const App = () => (
             <Route path="/ai/video-generation" element={<AIVideoGeneration />} />
             <Route path="/ai/presentations" element={<AIPresentations />} />
             <Route path="/ai/development-tools" element={<AIDevelopmentTools />} />
+            <Route path="/ai/job-market" element={<AIJobMarket />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

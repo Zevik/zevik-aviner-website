@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import MobileNavItem from "./MobileNavItem";
 
@@ -115,6 +114,7 @@ const MobileMenu = ({
               <MobileNavItem to="/ai/video-generation" label="יצירת סרטונים" onClick={onCloseMenu} />
               <MobileNavItem to="/ai/presentations" label="יצירת מצגות" onClick={onCloseMenu} />
               <MobileNavItem to="/ai/development-tools" label="כלי פיתוח" onClick={onCloseMenu} />
+              <MobileNavItem to="/ai/job-market" label="שוק התעסוקה" onClick={onCloseMenu} />
             </>
           )}
         </MobileNavItem>
