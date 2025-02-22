@@ -76,6 +76,7 @@ const DesktopNav = ({
     { to: "/ai/presentations", label: "יצירת מצגות" },
     { to: "/ai/development-tools", label: "כלי פיתוח" },
     { to: "/ai/job-market", label: "שוק התעסוקה" },
+    { to: "/ai/era", label: "העידן המלאכותי" },
   ];
 
   return (
