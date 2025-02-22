@@ -113,11 +113,15 @@ const DesktopNav = ({
         <NavDropdown isOpen={isIndependentOpen} links={independentLinks} />
       </div>
 
-      <div className="relative group">
-        <button className="nav-link">
-          בינה מלאכותית
-        </button>
-        <NavDropdown isOpen={false} links={aiLinks} />
+      <div className="relative group hover:opacity-100">
+        <div className="relative group"
+             onMouseEnter={onIndependentEnter}
+             onMouseLeave={onIndependentLeave}>
+          <button className="nav-link">
+            בינה מלאכותית
+          </button>
+          <NavDropdown isOpen={isIndependentOpen} links={aiLinks} />
+        </div>
       </div>
 
       <Link to="/about" className="nav-link">
