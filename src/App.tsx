@@ -33,6 +33,7 @@ import AIChatbots from "./pages/ai/AIChatbots";
 import AIImageGeneration from "./pages/ai/AIImageGeneration";
 import AIVideoGeneration from "./pages/ai/AIVideoGeneration";
 import AIPresentations from "./pages/ai/AIPresentations";
+import AIDevelopmentTools from "./pages/ai/AIDevelopmentTools";
 
 const queryClient = new QueryClient();
 
@@ -71,6 +72,7 @@ const App = () => (
             <Route path="/ai/image-generation" element={<AIImageGeneration />} />
             <Route path="/ai/video-generation" element={<AIVideoGeneration />} />
             <Route path="/ai/presentations" element={<AIPresentations />} />
+            <Route path="/ai/development-tools" element={<AIDevelopmentTools />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
