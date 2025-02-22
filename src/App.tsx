@@ -29,6 +29,10 @@ import GroupsMonitoring from "./pages/extensions/GroupsMonitoring";
 import ReplyComments from "./pages/extensions/ReplyComments";
 import SelfEmployedInIsrael from "./pages/independent/SelfEmployedInIsrael";
 import EndEmployment from "./pages/independent/EndEmployment";
+import AIChatbots from "./pages/ai/AIChatbots";
+import AIImageGeneration from "./pages/ai/AIImageGeneration";
+import AIVideoGeneration from "./pages/ai/AIVideoGeneration";
+import AIPresentations from "./pages/ai/AIPresentations";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +67,10 @@ const App = () => (
             <Route path="/extensions/gmac" element={<Gmac />} />
             <Route path="/extensions/groups-monitoring" element={<GroupsMonitoring />} />
             <Route path="/extensions/reply-comments" element={<ReplyComments />} />
+            <Route path="/ai/chatbots" element={<AIChatbots />} />
+            <Route path="/ai/image-generation" element={<AIImageGeneration />} />
+            <Route path="/ai/video-generation" element={<AIVideoGeneration />} />
+            <Route path="/ai/presentations" element={<AIPresentations />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

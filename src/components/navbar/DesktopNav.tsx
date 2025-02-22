@@ -64,6 +64,13 @@ const DesktopNav = ({
     { to: "/independent/end-employment", label: "סיום העסקה" },
   ];
 
+  const aiLinks = [
+    { to: "/ai/chatbots", label: "צ'אטים" },
+    { to: "/ai/image-generation", label: "יצירת תמונות" },
+    { to: "/ai/video-generation", label: "יצירת סרטונים" },
+    { to: "/ai/presentations", label: "יצירת מצגות" },
+  ];
+
   return (
     <div className="hidden md:flex items-center space-x-8 space-x-reverse">
       <Link to="/" className="nav-link">
@@ -104,6 +111,13 @@ const DesktopNav = ({
           עצמאים ועצמאיות
         </button>
         <NavDropdown isOpen={isIndependentOpen} links={independentLinks} />
+      </div>
+
+      <div className="relative group">
+        <button className="nav-link">
+          בינה מלאכותית
+        </button>
+        <NavDropdown isOpen={false} links={aiLinks} />
       </div>
 
       <Link to="/about" className="nav-link">
