@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import MobileNavItem from "./MobileNavItem";
 
@@ -7,10 +8,12 @@ interface MobileMenuProps {
   isExtensionsOpen: boolean;
   isArticlesOpen: boolean;
   isIndependentOpen: boolean;
+  isAIOpen: boolean;
   onToggleCommunities: () => void;
   onToggleExtensions: () => void;
   onToggleArticles: () => void;
   onToggleIndependent: () => void;
+  onToggleAI: () => void;
   onCloseMenu: () => void;
 }
 
@@ -20,10 +23,12 @@ const MobileMenu = ({
   isExtensionsOpen,
   isArticlesOpen,
   isIndependentOpen,
+  isAIOpen,
   onToggleCommunities,
   onToggleExtensions,
   onToggleArticles,
   onToggleIndependent,
+  onToggleAI,
   onCloseMenu,
 }: MobileMenuProps) => {
   if (!isOpen) return null;
@@ -75,6 +80,7 @@ const MobileMenu = ({
               <MobileNavItem to="/articles/why-not-haredim" label="למה אסור לכתוב 'חרדים'?" onClick={onCloseMenu} />
               <MobileNavItem to="/articles/war-on-stereotypical-language" label="מלחמה בשפה סטריאוטיפית" onClick={onCloseMenu} />
               <MobileNavItem to="/articles/the-haredim" label="אז מי הם באמת החרדים?" onClick={onCloseMenu} />
+              <MobileNavItem to="/articles/language-of-stereotypes" label="שפת הסטריאוטיפים" onClick={onCloseMenu} />
             </>
           )}
         </MobileNavItem>
@@ -93,6 +99,21 @@ const MobileMenu = ({
               <MobileNavItem to="/independent/worker-employer-relations" label="יחסי עובד-מעביד" onClick={onCloseMenu} />
               <MobileNavItem to="/independent/self-employed-in-israel" label="עצמאים בישראל" onClick={onCloseMenu} />
               <MobileNavItem to="/independent/end-employment" label="סיום העסקה" onClick={onCloseMenu} />
+            </>
+          )}
+        </MobileNavItem>
+
+        <MobileNavItem 
+          label="בינה מלאכותית"
+          onClick={onToggleAI}
+          isSubmenu={true}
+        >
+          {isAIOpen && (
+            <>
+              <MobileNavItem to="/ai/chatbots" label="צ'אטים" onClick={onCloseMenu} />
+              <MobileNavItem to="/ai/image-generation" label="יצירת תמונות" onClick={onCloseMenu} />
+              <MobileNavItem to="/ai/video-generation" label="יצירת סרטונים" onClick={onCloseMenu} />
+              <MobileNavItem to="/ai/presentations" label="יצירת מצגות" onClick={onCloseMenu} />
             </>
           )}
         </MobileNavItem>

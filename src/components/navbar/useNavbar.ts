@@ -6,6 +6,7 @@ export const useNavbar = () => {
   const [isExtensionsOpen, setIsExtensionsOpen] = useState(false);
   const [isArticlesOpen, setIsArticlesOpen] = useState(false);
   const [isIndependentOpen, setIsIndependentOpen] = useState(false);
+  const [isAIOpen, setIsAIOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -14,6 +15,7 @@ export const useNavbar = () => {
     if (isExtensionsOpen) setIsExtensionsOpen(false);
     if (isArticlesOpen) setIsArticlesOpen(false);
     if (isIndependentOpen) setIsIndependentOpen(false);
+    if (isAIOpen) setIsAIOpen(false);
   };
 
   return {
@@ -21,11 +23,13 @@ export const useNavbar = () => {
     isExtensionsOpen,
     isArticlesOpen,
     isIndependentOpen,
+    isAIOpen,
     isMobileMenuOpen,
     setIsCommunitiesOpen,
     setIsExtensionsOpen,
     setIsArticlesOpen,
     setIsIndependentOpen,
+    setIsAIOpen,
     toggleMobileMenu,
   };
 };

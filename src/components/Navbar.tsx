@@ -11,11 +11,13 @@ const Navbar = () => {
     isExtensionsOpen,
     isArticlesOpen,
     isIndependentOpen,
+    isAIOpen,
     isMobileMenuOpen,
     setIsCommunitiesOpen,
     setIsExtensionsOpen,
     setIsArticlesOpen,
     setIsIndependentOpen,
+    setIsAIOpen,
     toggleMobileMenu,
   } = useNavbar();
 
@@ -61,10 +63,12 @@ const Navbar = () => {
           isExtensionsOpen={isExtensionsOpen}
           isArticlesOpen={isArticlesOpen}
           isIndependentOpen={isIndependentOpen}
+          isAIOpen={isAIOpen}
           onToggleCommunities={() => setIsCommunitiesOpen(!isCommunitiesOpen)}
           onToggleExtensions={() => setIsExtensionsOpen(!isExtensionsOpen)}
           onToggleArticles={() => setIsArticlesOpen(!isArticlesOpen)}
           onToggleIndependent={() => setIsIndependentOpen(!isIndependentOpen)}
+          onToggleAI={() => setIsAIOpen(!isAIOpen)}
           onCloseMenu={toggleMobileMenu}
         />
       </div>
