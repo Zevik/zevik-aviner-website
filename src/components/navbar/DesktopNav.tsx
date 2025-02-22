@@ -75,6 +75,7 @@ const DesktopNav = ({
     { to: "/ai/image-generation", label: "יצירת תמונות" },
     { to: "/ai/video-generation", label: "יצירת סרטונים" },
     { to: "/ai/presentations", label: "יצירת מצגות" },
+    { to: "/ai/development-tools", label: "כלי פיתוח" },
   ];
 
   return (

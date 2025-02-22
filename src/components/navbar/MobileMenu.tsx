@@ -114,6 +114,7 @@ const MobileMenu = ({
               <MobileNavItem to="/ai/image-generation" label="יצירת תמונות" onClick={onCloseMenu} />
               <MobileNavItem to="/ai/video-generation" label="יצירת סרטונים" onClick={onCloseMenu} />
               <MobileNavItem to="/ai/presentations" label="יצירת מצגות" onClick={onCloseMenu} />
+              <MobileNavItem to="/ai/development-tools" label="כלי פיתוח" onClick={onCloseMenu} />
             </>
           )}
         </MobileNavItem>
