@@ -89,17 +89,30 @@ const Index = () => {
             מאמרים אחרונים
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3].map((_, index) => (
-              <div 
-                key={index}
-                className="content-box bg-white hover:scale-105 transition-all duration-300 animate-fadeIn"
-                style={{ animationDelay: `${0.1 * (index + 1)}s` }}
-              >
-                <div className="aspect-video bg-gray-100 rounded-md mb-4"></div>
-                <h3 className="text-xl font-bold">כותרת המאמר</h3>
-                <p className="text-gray-600">תיאור קצר של המאמר...</p>
-              </div>
-            ))}
+            <Link 
+              to="/ai/era"
+              className="content-box bg-white hover:scale-105 transition-all duration-300 animate-fadeIn"
+            >
+              <div className="aspect-video bg-gray-100 rounded-md mb-4"></div>
+              <h3 className="text-xl font-bold">עידן הבינה המלאכותית</h3>
+              <p className="text-gray-600">האם אנחנו באמת מבינים את גודל השינוי שעומד בפתח?</p>
+            </Link>
+            <Link 
+              to="/ai/job-market"
+              className="content-box bg-white hover:scale-105 transition-all duration-300 animate-fadeIn"
+            >
+              <div className="aspect-video bg-gray-100 rounded-md mb-4"></div>
+              <h3 className="text-xl font-bold">השלכות AI על שוק התעסוקה</h3>
+              <p className="text-gray-600">מה צופים המחקרים העדכניים ביותר לגבי עתיד התעסוקה?</p>
+            </Link>
+            <Link 
+              to="/communities/insights"
+              className="content-box bg-white hover:scale-105 transition-all duration-300 animate-fadeIn"
+            >
+              <div className="aspect-video bg-gray-100 rounded-md mb-4"></div>
+              <h3 className="text-xl font-bold">תובנות בניהול קהילות</h3>
+              <p className="text-gray-600">איך מנהלים קהילה מצליחה בעידן הדיגיטלי?</p>
+            </Link>
           </div>
         </div>
       </section>
