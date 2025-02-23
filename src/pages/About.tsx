@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const About = () => {
@@ -16,7 +15,7 @@ const About = () => {
         <section className="bg-white/40 backdrop-blur-sm p-8 rounded-lg shadow-sm">
           <h2 className="text-2xl font-semibold mb-6 text-primary">מי אני</h2>
           <p className="text-gray-700 leading-relaxed">
-            כמנהל הרשתות החברתיות הגדולות של ירושלים, אני מביא עימי ניסיון עשיר בבניית והובלת קהילות משמעותיות. 
+            כמנהל הרשתות החברתיות הגדולות של ירושלים, אני מביא עמי ניסיון עשיר בבניית והובלת קהילות משמעותיות. 
             אני מאמין שהכוח האמיתי של הרשתות החברתיות טמון ביכולתן ליצור חיבורים אנושיים, לבנות גשרים בין אנשים, 
             ולהפוך רעיונות למציאות דרך כוחה של הקהילה.
           </p>
@@ -58,8 +57,7 @@ const About = () => {
           <h2 className="text-2xl font-semibold mb-6 text-primary">ניסיון בניהול קבוצות</h2>
           <div className="space-y-4">
             <p className="text-gray-700 leading-relaxed">
-              ניסיוני העשיר כולל מאות גישורים מוצלחים בין עסקים ללקוחות, שכנים ואנשים פרטיים. 
-              אני מתמחה בניהול וגישור קונפליקטים קבוצתיים, תוך יצירת פתרונות יצירתיים ובני-קיימא.
+              ניסיוני כולל גישורים רבים ומוצלחים בין עסקים ללקוחות, שכנים ואנשים פרטיים. נסיון רב בניהול וגישור קונפליקטים קבוצתיים, תוך יצירת פתרונות יצירתיים ובני-קיימא.
             </p>
             <div className="grid md:grid-cols-2 gap-4 mt-6">
               <div className="bg-white/50 p-4 rounded-lg">
@@ -68,7 +66,7 @@ const About = () => {
               </div>
               <div className="bg-white/50 p-4 rounded-lg">
                 <h3 className="text-primary font-semibold mb-2">סיוע קהילתי</h3>
-                <p className="text-gray-600">מאות קישורים וחיבורים לסיוע למשפחות וליחידים נזקקים</p>
+                <p className="text-gray-600">קישורים וחיבורים רבים לסיוע למשפחות וליחידים נזקקים</p>
               </div>
             </div>
           </div>
