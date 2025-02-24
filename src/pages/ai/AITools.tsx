@@ -87,7 +87,6 @@ const AITools = () => {
         
         {/* Tags filter */}
         <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4">סינון לפי תגיות:</h2>
           <div className="flex flex-wrap gap-2">
             {tags.map(tag => (
               <Badge
@@ -105,7 +104,7 @@ const AITools = () => {
         {/* Tools grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredTools.map(tool => (
-            <div key={tool.name} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div key={tool.name} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex flex-col">
               <h3 className="text-xl font-bold mb-2">{tool.name}</h3>
               <p className="text-gray-600 mb-4">{tool.description}</p>
               <div className="flex flex-wrap gap-2 mb-4">
@@ -118,14 +117,16 @@ const AITools = () => {
               <div className="text-sm text-gray-500 mb-4">
                 מחיר: {tool.price}
               </div>
-              <a
-                href={tool.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition-colors"
-              >
-                למידע נוסף
-              </a>
+              <div className="mt-auto flex justify-center">
+                <a
+                  href={tool.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition-colors"
+                >
+                  למידע נוסף
+                </a>
+              </div>
             </div>
           ))}
         </div>
