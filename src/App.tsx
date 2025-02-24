@@ -35,6 +35,7 @@ import AIPresentations from "./pages/ai/AIPresentations";
 import AIDevelopmentTools from "./pages/ai/AIDevelopmentTools";
 import AIJobMarket from "./pages/ai/AIJobMarket";
 import AIEra from "./pages/ai/AIEra";
+import AITools from "./pages/ai/AITools";
 
 const queryClient = new QueryClient();
 
@@ -76,6 +77,7 @@ const App = () => (
             <Route path="/ai/development-tools" element={<AIDevelopmentTools />} />
             <Route path="/ai/job-market" element={<AIJobMarket />} />
             <Route path="/ai/era" element={<AIEra />} />
+            <Route path="/ai/tools" element={<AITools />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

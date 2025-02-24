@@ -110,6 +110,7 @@ const MobileMenu = ({
           {isAIOpen && (
             <>
               <MobileNavItem to="/ai/chatbots" label="צ'אטים" onClick={onCloseMenu} />
+              <MobileNavItem to="/ai/tools" label="כלים שימושיים" onClick={onCloseMenu} />
               <MobileNavItem to="/ai/image-generation" label="יצירת תמונות" onClick={onCloseMenu} />
               <MobileNavItem to="/ai/video-generation" label="יצירת סרטונים" onClick={onCloseMenu} />
               <MobileNavItem to="/ai/presentations" label="יצירת מצגות" onClick={onCloseMenu} />
