@@ -29,7 +29,6 @@ import GroupsMonitoring from "./pages/extensions/GroupsMonitoring";
 import ReplyComments from "./pages/extensions/ReplyComments";
 import SelfEmployedInIsrael from "./pages/independent/SelfEmployedInIsrael";
 import EndEmployment from "./pages/independent/EndEmployment";
-import AIDevelopmentTools from "./pages/ai/AIDevelopmentTools";
 import AIJobMarket from "./pages/ai/AIJobMarket";
 import AIEra from "./pages/ai/AIEra";
 import AITools from "./pages/ai/AITools";
@@ -68,7 +67,6 @@ const App = () => (
             <Route path="/extensions/groups-monitoring" element={<GroupsMonitoring />} />
             <Route path="/extensions/reply-comments" element={<ReplyComments />} />
             <Route path="/ai/tools" element={<AITools />} />
-            <Route path="/ai/development-tools" element={<AIDevelopmentTools />} />
             <Route path="/ai/job-market" element={<AIJobMarket />} />
             <Route path="/ai/era" element={<AIEra />} />
             <Route path="*" element={<NotFound />} />
