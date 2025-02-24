@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import MobileNavItem from "./MobileNavItem";
 
@@ -48,7 +49,7 @@ const MobileMenu = ({
               <MobileNavItem to="/communities/legal" label="אחריות משפטית" onClick={onCloseMenu} />
               <MobileNavItem to="/communities/insights" label="תובנות וניהול" onClick={onCloseMenu} />
               <MobileNavItem to="/communities/virtual-synagogue" label="בית הכנסת הווירטואלי" onClick={onCloseMenu} />
-              <MobileNavItem to="/communities/virtual-square" label="כיכר השוק הווירטואלית" onClick={onCloseMenu} />
+              <MobileNavItem to="/communities/virtual-square" label="גשרים דיגיטליים" onClick={onCloseMenu} />
               <MobileNavItem to="/communities/monetization" label="מוניטיזציה למנהלי קבוצות" onClick={onCloseMenu} />
               <MobileNavItem to="/communities/marketing-writing" label="כתיבה שיווקית" onClick={onCloseMenu} />
             </>
@@ -109,11 +110,7 @@ const MobileMenu = ({
         >
           {isAIOpen && (
             <>
-              <MobileNavItem to="/ai/chatbots" label="צ'אטים" onClick={onCloseMenu} />
               <MobileNavItem to="/ai/tools" label="כלים שימושיים" onClick={onCloseMenu} />
-              <MobileNavItem to="/ai/image-generation" label="יצירת תמונות" onClick={onCloseMenu} />
-              <MobileNavItem to="/ai/video-generation" label="יצירת סרטונים" onClick={onCloseMenu} />
-              <MobileNavItem to="/ai/presentations" label="יצירת מצגות" onClick={onCloseMenu} />
               <MobileNavItem to="/ai/development-tools" label="כלי פיתוח" onClick={onCloseMenu} />
               <MobileNavItem to="/ai/job-market" label="שוק התעסוקה" onClick={onCloseMenu} />
               <MobileNavItem to="/ai/era" label="העידן המלאכותי" onClick={onCloseMenu} />

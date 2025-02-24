@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import NavDropdown from "./NavDropdown";
 
@@ -70,11 +71,7 @@ const DesktopNav = ({
   ];
 
   const aiLinks = [
-    { to: "/ai/chatbots", label: "צ'אטים" },
     { to: "/ai/tools", label: "כלים שימושיים" },
-    { to: "/ai/image-generation", label: "יצירת תמונות" },
-    { to: "/ai/video-generation", label: "יצירת סרטונים" },
-    { to: "/ai/presentations", label: "יצירת מצגות" },
     { to: "/ai/development-tools", label: "כלי פיתוח" },
     { to: "/ai/job-market", label: "שוק התעסוקה" },
     { to: "/ai/era", label: "העידן המלאכותי" },

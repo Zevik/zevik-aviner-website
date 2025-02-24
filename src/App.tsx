@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -28,10 +29,6 @@ import GroupsMonitoring from "./pages/extensions/GroupsMonitoring";
 import ReplyComments from "./pages/extensions/ReplyComments";
 import SelfEmployedInIsrael from "./pages/independent/SelfEmployedInIsrael";
 import EndEmployment from "./pages/independent/EndEmployment";
-import AIChatbots from "./pages/ai/AIChatbots";
-import AIImageGeneration from "./pages/ai/AIImageGeneration";
-import AIVideoGeneration from "./pages/ai/AIVideoGeneration";
-import AIPresentations from "./pages/ai/AIPresentations";
 import AIDevelopmentTools from "./pages/ai/AIDevelopmentTools";
 import AIJobMarket from "./pages/ai/AIJobMarket";
 import AIEra from "./pages/ai/AIEra";
@@ -70,14 +67,10 @@ const App = () => (
             <Route path="/extensions/gmac" element={<Gmac />} />
             <Route path="/extensions/groups-monitoring" element={<GroupsMonitoring />} />
             <Route path="/extensions/reply-comments" element={<ReplyComments />} />
-            <Route path="/ai/chatbots" element={<AIChatbots />} />
-            <Route path="/ai/image-generation" element={<AIImageGeneration />} />
-            <Route path="/ai/video-generation" element={<AIVideoGeneration />} />
-            <Route path="/ai/presentations" element={<AIPresentations />} />
+            <Route path="/ai/tools" element={<AITools />} />
             <Route path="/ai/development-tools" element={<AIDevelopmentTools />} />
             <Route path="/ai/job-market" element={<AIJobMarket />} />
             <Route path="/ai/era" element={<AIEra />} />
-            <Route path="/ai/tools" element={<AITools />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
