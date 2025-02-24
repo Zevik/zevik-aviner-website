@@ -1,6 +1,8 @@
 
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Badge } from "@/components/ui/badge";
+import { Loader2 } from "lucide-react";
 
 interface Tool {
   name: string;
@@ -10,42 +12,46 @@ interface Tool {
   price: string;
 }
 
-const tools: Tool[] = [
-  {
-    name: "Bing Image Creator",
-    url: "https://www.bing.com/create",
-    description: "מבוסס על טכנולוגיית DALL-E, מאפשר יצירת תמונות מגוונות",
-    tags: ["image", "text", "Free"],
-    price: "שימוש חינמי, מוגבל בכמות"
-  },
-  {
-    name: "DALL-E 3",
-    url: "https://openai.com/dall-e-3",
-    description: "איכות גבוהה, אינטגרציה עם ChatGPT, מתאים למרתחי",
-    tags: ["image", "text", "Paid"],
-    price: "מחיר מבוסס קרדיטים (כ-2$)"
-  },
-  {
-    name: "Midjourney",
-    url: "https://www.midjourney.com",
-    description: "כלי מוביל ליצירת תמונות ברזולוציה גבוהה וטקסטורות מגוונות",
-    tags: ["image", "Paid"],
-    price: "מנוי בסיסי החל מ-10$ לחודש"
-  },
-  {
-    name: "Stable Diffusion",
-    url: "https://stability.ai",
-    description: "מבוסס קוד פתוח, מגיע גם כממשק טכני",
-    tags: ["image", "open-source", "Free"],
-    price: "קוד פתוח לשימוש מקומי ללא תשלום"
-  }
-];
+// Fetch tools from Google Sheets
+const fetchTools = async (): Promise<Tool[]> => {
+  const SHEET_ID = "1A931tSblDQ_1IXJWKInL8bQIYCDkE7kREnWjTJ2Q25k";
+  const TOOLS_RANGE = "tools!A2:E";
+  const response = await fetch(
+    `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TOOLS_RANGE}?key=${import.meta.env.VITE_GOOGLE_SHEETS_API_KEY}`
+  );
+  const data = await response.json();
+  return data.values?.map((row: string[]) => ({
+    name: row[0] || "",
+    url: row[1] || "",
+    description: row[2] || "",
+    tags: (row[3] || "").split(",").map(tag => tag.trim()).filter(Boolean),
+    price: row[4] || ""
+  })) || [];
+};
+
+// Fetch tags from Google Sheets
+const fetchTags = async (): Promise<string[]> => {
+  const SHEET_ID = "1A931tSblDQ_1IXJWKInL8bQIYCDkE7kREnWjTJ2Q25k";
+  const TAGS_RANGE = "tags!A2:A";
+  const response = await fetch(
+    `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TAGS_RANGE}?key=${import.meta.env.VITE_GOOGLE_SHEETS_API_KEY}`
+  );
+  const data = await response.json();
+  return data.values?.map((row: string[]) => row[0]).filter(Boolean) || [];
+};
 
 const AITools = () => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  // Extract unique tags
-  const uniqueTags = Array.from(new Set(tools.flatMap(tool => tool.tags)));
+  const { data: tools = [], isLoading: isLoadingTools } = useQuery({
+    queryKey: ['tools'],
+    queryFn: fetchTools
+  });
+
+  const { data: tags = [], isLoading: isLoadingTags } = useQuery({
+    queryKey: ['tags'],
+    queryFn: fetchTags
+  });
 
   // Filter tools based on selected tags
   const filteredTools = tools.filter(tool => 
@@ -60,6 +66,14 @@ const AITools = () => {
     );
   };
 
+  if (isLoadingTools || isLoadingTags) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-secondary/30 to-transparent pt-24 pb-12 px-4 flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-secondary/30 to-transparent pt-24 pb-12 px-4">
       <div className="w-full max-w-6xl mx-auto">
@@ -69,7 +83,7 @@ const AITools = () => {
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4">סינון לפי תגיות:</h2>
           <div className="flex flex-wrap gap-2">
-            {uniqueTags.map(tag => (
+            {tags.map(tag => (
               <Badge
                 key={tag}
                 variant={selectedTags.includes(tag) ? "default" : "outline"}
