@@ -12,32 +12,38 @@ interface Tool {
   price: string;
 }
 
-// Fetch tools from Google Sheets
+// Fetch tools from Google Sheets without API key
 const fetchTools = async (): Promise<Tool[]> => {
   const SHEET_ID = "1A931tSblDQ_1IXJWKInL8bQIYCDkE7kREnWjTJ2Q25k";
-  const TOOLS_RANGE = "tools!A2:E";
-  const response = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TOOLS_RANGE}?key=${import.meta.env.VITE_GOOGLE_SHEETS_API_KEY}`
-  );
-  const data = await response.json();
-  return data.values?.map((row: string[]) => ({
-    name: row[0] || "",
-    url: row[1] || "",
-    description: row[2] || "",
-    tags: (row[3] || "").split(",").map(tag => tag.trim()).filter(Boolean),
-    price: row[4] || ""
-  })) || [];
+  const SHEET_NAME = "tools";
+  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
+  
+  const response = await fetch(url);
+  const text = await response.text();
+  const jsonText = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/)[1];
+  const json = JSON.parse(jsonText);
+
+  return json.table.rows.slice(1).map((row: any) => ({
+    name: row.c[0]?.v || "",
+    url: row.c[1]?.v || "",
+    description: row.c[2]?.v || "",
+    tags: (row.c[3]?.v || "").split(",").map((tag: string) => tag.trim()).filter(Boolean),
+    price: row.c[4]?.v || ""
+  }));
 };
 
-// Fetch tags from Google Sheets
+// Fetch tags from Google Sheets without API key
 const fetchTags = async (): Promise<string[]> => {
   const SHEET_ID = "1A931tSblDQ_1IXJWKInL8bQIYCDkE7kREnWjTJ2Q25k";
-  const TAGS_RANGE = "tags!A2:A";
-  const response = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${TAGS_RANGE}?key=${import.meta.env.VITE_GOOGLE_SHEETS_API_KEY}`
-  );
-  const data = await response.json();
-  return data.values?.map((row: string[]) => row[0]).filter(Boolean) || [];
+  const SHEET_NAME = "tags";
+  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
+  
+  const response = await fetch(url);
+  const text = await response.text();
+  const jsonText = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/)[1];
+  const json = JSON.parse(jsonText);
+
+  return json.table.rows.slice(1).map((row: any) => row.c[0]?.v).filter(Boolean);
 };
 
 const AITools = () => {
