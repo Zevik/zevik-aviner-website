@@ -75,4 +75,15 @@ const Navbar = () => {
           isNotesOpen={isNotesOpen}
           onToggleCommunities={() => setIsCommunitiesOpen(!isCommunitiesOpen)}
           onToggleExtensions={() => setIsExtensionsOpen(!isExtensionsOpen)}
-          onToggleArticles={() => setIsArticlesOpen(!isArticles
+          onToggleArticles={() => setIsArticlesOpen(!isArticlesOpen)}
+          onToggleIndependent={() => setIsIndependentOpen(!isIndependentOpen)}
+          onToggleAI={() => setIsAIOpen(!isAIOpen)}
+          onToggleNotes={() => setIsNotesOpen(!isNotesOpen)}
+          onCloseMenu={toggleMobileMenu}
+        />
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
