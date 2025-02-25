@@ -1,5 +1,6 @@
 
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import MobileNavItem from "./MobileNavItem";
 
 interface MobileMenuProps {
@@ -9,13 +10,40 @@ interface MobileMenuProps {
   isArticlesOpen: boolean;
   isIndependentOpen: boolean;
   isAIOpen: boolean;
+  isNotesOpen: boolean;
   onToggleCommunities: () => void;
   onToggleExtensions: () => void;
   onToggleArticles: () => void;
   onToggleIndependent: () => void;
   onToggleAI: () => void;
+  onToggleNotes: () => void;
   onCloseMenu: () => void;
 }
+
+interface NotePage {
+  path: string;
+  menuTitle: string;
+  pageTitle: string;
+  content: string;
+}
+
+const fetchNotePages = async (): Promise<NotePage[]> => {
+  const SHEET_ID = "1A931tSblDQ_1IXJWKInL8bQIYCDkE7kREnWjTJ2Q25k";
+  const SHEET_NAME = "notes";
+  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
+  
+  const response = await fetch(url);
+  const text = await response.text();
+  const jsonText = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/)[1];
+  const json = JSON.parse(jsonText);
+
+  return json.table.rows.slice(1).map((row: any) => ({
+    path: row.c[0]?.v || "",
+    menuTitle: row.c[1]?.v || "",
+    pageTitle: row.c[2]?.v || "",
+    content: row.c[3]?.v || ""
+  }));
+};
 
 const MobileMenu = ({
   isOpen,
@@ -24,13 +52,20 @@ const MobileMenu = ({
   isArticlesOpen,
   isIndependentOpen,
   isAIOpen,
+  isNotesOpen,
   onToggleCommunities,
   onToggleExtensions,
   onToggleArticles,
   onToggleIndependent,
   onToggleAI,
+  onToggleNotes,
   onCloseMenu,
 }: MobileMenuProps) => {
+  const { data: notePages = [] } = useQuery({
+    queryKey: ['notes-pages'],
+    queryFn: fetchNotePages
+  });
+
   if (!isOpen) return null;
 
   return (
@@ -118,8 +153,26 @@ const MobileMenu = ({
           )}
         </MobileNavItem>
 
+        <MobileNavItem 
+          label="פתקים"
+          onClick={onToggleNotes}
+          isSubmenu={true}
+        >
+          {isNotesOpen && (
+            <>
+              {notePages.map(page => (
+                <MobileNavItem 
+                  key={page.path}
+                  to={`/notes/${page.path}`}
+                  label={page.menuTitle}
+                  onClick={onCloseMenu}
+                />
+              ))}
+            </>
+          )}
+        </MobileNavItem>
+
         <MobileNavItem to="/about" label="אודות" onClick={onCloseMenu} />
-        <MobileNavItem to="/contact" label="צור קשר" onClick={onCloseMenu} />
       </div>
     </div>
   );

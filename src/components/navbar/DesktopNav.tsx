@@ -1,5 +1,6 @@
 
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import NavDropdown from "./NavDropdown";
 
 interface DesktopNavProps {
@@ -8,6 +9,7 @@ interface DesktopNavProps {
   isArticlesOpen: boolean;
   isIndependentOpen: boolean;
   isAIOpen: boolean;
+  isNotesOpen: boolean;
   onCommunitiesEnter: () => void;
   onCommunitiesLeave: () => void;
   onExtensionsEnter: () => void;
@@ -18,7 +20,34 @@ interface DesktopNavProps {
   onIndependentLeave: () => void;
   onAIEnter: () => void;
   onAILeave: () => void;
+  onNotesEnter: () => void;
+  onNotesLeave: () => void;
 }
+
+interface NotePage {
+  path: string;
+  menuTitle: string;
+  pageTitle: string;
+  content: string;
+}
+
+const fetchNotePages = async (): Promise<NotePage[]> => {
+  const SHEET_ID = "1A931tSblDQ_1IXJWKInL8bQIYCDkE7kREnWjTJ2Q25k";
+  const SHEET_NAME = "notes";
+  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
+  
+  const response = await fetch(url);
+  const text = await response.text();
+  const jsonText = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/)[1];
+  const json = JSON.parse(jsonText);
+
+  return json.table.rows.slice(1).map((row: any) => ({
+    path: row.c[0]?.v || "",
+    menuTitle: row.c[1]?.v || "",
+    pageTitle: row.c[2]?.v || "",
+    content: row.c[3]?.v || ""
+  }));
+};
 
 const DesktopNav = ({
   isCommunitiesOpen,
@@ -26,6 +55,7 @@ const DesktopNav = ({
   isArticlesOpen,
   isIndependentOpen,
   isAIOpen,
+  isNotesOpen,
   onCommunitiesEnter,
   onCommunitiesLeave,
   onExtensionsEnter,
@@ -36,7 +66,19 @@ const DesktopNav = ({
   onIndependentLeave,
   onAIEnter,
   onAILeave,
+  onNotesEnter,
+  onNotesLeave,
 }: DesktopNavProps) => {
+  const { data: notePages = [] } = useQuery({
+    queryKey: ['notes-pages'],
+    queryFn: fetchNotePages
+  });
+
+  const noteLinks = notePages.map(page => ({
+    to: `/notes/${page.path}`,
+    label: page.menuTitle
+  }));
+
   const communityLinks = [
     { to: "/communities/shaming", label: "שיימינג" },
     { to: "/communities/legal", label: "אחריות משפטית" },
@@ -128,12 +170,17 @@ const DesktopNav = ({
         <NavDropdown isOpen={isAIOpen} links={aiLinks} />
       </div>
 
+      <div className="relative group"
+           onMouseEnter={onNotesEnter}
+           onMouseLeave={onNotesLeave}>
+        <button className="nav-link">
+          פתקים
+        </button>
+        <NavDropdown isOpen={isNotesOpen} links={noteLinks} />
+      </div>
+
       <Link to="/about" className="nav-link">
         אודות
-      </Link>
-      
-      <Link to="/contact" className="nav-link">
-        צור קשר
       </Link>
     </div>
   );

@@ -33,6 +33,7 @@ import EndEmployment from "./pages/independent/EndEmployment";
 import AIJobMarket from "./pages/ai/AIJobMarket";
 import AIEra from "./pages/ai/AIEra";
 import AITools from "./pages/ai/AITools";
+import DynamicPageRoute from "./components/DynamicPageRoute";
 
 const queryClient = new QueryClient();
 
@@ -71,6 +72,7 @@ const App = () => (
             <Route path="/ai/tools" element={<AITools />} />
             <Route path="/ai/job-market" element={<AIJobMarket />} />
             <Route path="/ai/era" element={<AIEra />} />
+            <Route path="/notes/:noteId" element={<DynamicPageRoute />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

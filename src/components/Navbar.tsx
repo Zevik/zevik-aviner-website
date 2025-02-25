@@ -12,12 +12,14 @@ const Navbar = () => {
     isArticlesOpen,
     isIndependentOpen,
     isAIOpen,
+    isNotesOpen,
     isMobileMenuOpen,
     setIsCommunitiesOpen,
     setIsExtensionsOpen,
     setIsArticlesOpen,
     setIsIndependentOpen,
     setIsAIOpen,
+    setIsNotesOpen,
     toggleMobileMenu,
   } = useNavbar();
 
@@ -39,6 +41,7 @@ const Navbar = () => {
             isArticlesOpen={isArticlesOpen}
             isIndependentOpen={isIndependentOpen}
             isAIOpen={isAIOpen}
+            isNotesOpen={isNotesOpen}
             onCommunitiesEnter={() => setIsCommunitiesOpen(true)}
             onCommunitiesLeave={() => setIsCommunitiesOpen(false)}
             onExtensionsEnter={() => setIsExtensionsOpen(true)}
@@ -49,6 +52,8 @@ const Navbar = () => {
             onIndependentLeave={() => setIsIndependentOpen(false)}
             onAIEnter={() => setIsAIOpen(true)}
             onAILeave={() => setIsAIOpen(false)}
+            onNotesEnter={() => setIsNotesOpen(true)}
+            onNotesLeave={() => setIsNotesOpen(false)}
           />
 
           <button 
@@ -67,16 +72,7 @@ const Navbar = () => {
           isArticlesOpen={isArticlesOpen}
           isIndependentOpen={isIndependentOpen}
           isAIOpen={isAIOpen}
+          isNotesOpen={isNotesOpen}
           onToggleCommunities={() => setIsCommunitiesOpen(!isCommunitiesOpen)}
           onToggleExtensions={() => setIsExtensionsOpen(!isExtensionsOpen)}
-          onToggleArticles={() => setIsArticlesOpen(!isArticlesOpen)}
-          onToggleIndependent={() => setIsIndependentOpen(!isIndependentOpen)}
-          onToggleAI={() => setIsAIOpen(!isAIOpen)}
-          onCloseMenu={toggleMobileMenu}
-        />
-      </div>
-    </nav>
-  );
-};
-
-export default Navbar;
+          onToggleArticles={() => setIsArticlesOpen(!isArticles
