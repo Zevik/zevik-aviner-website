@@ -28,18 +28,10 @@ const fetchArticles = async (): Promise<Article[]> => {
   }));
 };
 
-// Fetch tags from Google Sheets without API key
-const fetchTags = async (): Promise<string[]> => {
-  const SHEET_ID = "1A931tSblDQ_1IXJWKInL8bQIYCDkE7kREnWjTJ2Q25k";
-  const SHEET_NAME = "article_tags";
-  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
-  
-  const response = await fetch(url);
-  const text = await response.text();
-  const jsonText = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/)[1];
-  const json = JSON.parse(jsonText);
-
-  return json.table.rows.slice(1).map((row: any) => row.c[0]?.v).filter(Boolean);
+// Extract unique tags from articles
+const getUniqueTags = (articles: Article[]): string[] => {
+  const allTags = articles.flatMap(article => article.tags);
+  return [...new Set(allTags)];
 };
 
 const Thoughts = () => {
@@ -50,10 +42,7 @@ const Thoughts = () => {
     queryFn: fetchArticles
   });
 
-  const { data: tags = [], isLoading: isLoadingTags } = useQuery({
-    queryKey: ['article_tags'],
-    queryFn: fetchTags
-  });
+  const tags = getUniqueTags(articles);
 
   // Filter articles based on selected tags
   const filteredArticles = articles.filter(article => 
@@ -68,7 +57,7 @@ const Thoughts = () => {
     );
   };
 
-  if (isLoadingArticles || isLoadingTags) {
+  if (isLoadingArticles) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-secondary/30 to-transparent pt-24 pb-12 px-4 flex items-center justify-center">
         <Loader2 className="w-8 h-8 animate-spin text-primary" />
