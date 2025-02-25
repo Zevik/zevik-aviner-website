@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import NavDropdown from "./NavDropdown";
 
@@ -57,6 +58,7 @@ const DesktopNav = ({
     { to: "/articles/war-on-stereotypical-language", label: "מלחמה בשפה סטריאוטיפית" },
     { to: "/articles/the-haredim", label: "אז מי הם באמת החרדים?" },
     { to: "/articles/language-of-stereotypes", label: "שפת הסטריאוטיפים" },
+    { to: "/articles/thoughts", label: "מחשבות" },
   ];
 
   const independentLinks = [

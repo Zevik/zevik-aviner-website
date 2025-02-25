@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import MobileNavItem from "./MobileNavItem";
 
@@ -80,6 +81,7 @@ const MobileMenu = ({
               <MobileNavItem to="/articles/war-on-stereotypical-language" label="מלחמה בשפה סטריאוטיפית" onClick={onCloseMenu} />
               <MobileNavItem to="/articles/the-haredim" label="אז מי הם באמת החרדים?" onClick={onCloseMenu} />
               <MobileNavItem to="/articles/language-of-stereotypes" label="שפת הסטריאוטיפים" onClick={onCloseMenu} />
+              <MobileNavItem to="/articles/thoughts" label="מחשבות" onClick={onCloseMenu} />
             </>
           )}
         </MobileNavItem>
