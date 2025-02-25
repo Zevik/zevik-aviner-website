@@ -5,11 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import { Loader2 } from "lucide-react";
 
 interface Article {
-  name: string;
-  url: string;
-  description: string;
+  title: string;
+  content: string;
   tags: string[];
-  price: string;
 }
 
 // Fetch articles from Google Sheets without API key
@@ -24,11 +22,9 @@ const fetchArticles = async (): Promise<Article[]> => {
   const json = JSON.parse(jsonText);
 
   return json.table.rows.slice(1).map((row: any) => ({
-    name: row.c[0]?.v || "",
-    url: row.c[1]?.v || "",
-    description: row.c[2]?.v || "",
-    tags: (row.c[3]?.v || "").split(",").map((tag: string) => tag.trim()).filter(Boolean),
-    price: row.c[4]?.v || ""
+    title: row.c[0]?.v || "",
+    content: row.c[1]?.v || "",
+    tags: (row.c[2]?.v || "").split(",").map((tag: string) => tag.trim()).filter(Boolean)
   }));
 };
 
@@ -104,25 +100,15 @@ const Thoughts = () => {
         {/* Articles grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredArticles.map(article => (
-            <div key={article.name} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex flex-col">
-              <h3 className="text-xl font-bold mb-2">{article.name}</h3>
-              <p className="text-gray-600 mb-4">{article.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
+            <div key={article.title} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow flex flex-col">
+              <h3 className="text-xl font-bold mb-2">{article.title}</h3>
+              <p className="text-gray-600 mb-4">{article.content}</p>
+              <div className="flex flex-wrap gap-2 mt-auto">
                 {article.tags.map(tag => (
                   <Badge key={tag} variant="secondary" className="text-xs">
                     {tag}
                   </Badge>
                 ))}
-              </div>
-              <div className="mt-auto flex justify-center">
-                <a
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition-colors"
-                >
-                  קרא עוד
-                </a>
               </div>
             </div>
           ))}
