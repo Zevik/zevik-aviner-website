@@ -22,19 +22,18 @@ const fetchPages = async (): Promise<Page[]> => {
   const jsonText = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/)[1];
   const json = JSON.parse(jsonText);
 
-  console.log("Raw Google Sheets Data:", json.table.rows);
-
   return json.table.rows.slice(1).map((row: any) => {
-    console.log("Processing row:", row);
-    const page = {
+    // בדיקה האם יש ערך בתא החמישי (אינדקס 4)
+    const imageUrl = row.c[4]?.v;
+    
+    return {
       path: row.c[0]?.v || "",
       menuTitle: row.c[1]?.v || "",
       pageTitle: row.c[2]?.v || "",
       content: row.c[3]?.v || "",
-      image: row.c[4]?.v || ""
+      // רק אם יש URL תקין נוסיף אותו
+      ...(imageUrl && { image: imageUrl })
     };
-    console.log("Processed page:", page);
-    return page;
   });
 };
 
@@ -55,7 +54,6 @@ const DynamicPageRoute = () => {
   }
 
   const page = pages.find(p => p.path === noteId);
-  console.log("Current page data:", page);
 
   if (!page) {
     return <NotFound />;
@@ -71,18 +69,19 @@ const DynamicPageRoute = () => {
               <p key={index} className="mb-4">{paragraph}</p>
             ))}
             {page.image && (
-              <>
-                <p className="text-gray-500 text-sm mt-8">URL התמונה: {page.image}</p>
+              <div className="mt-8 space-y-2">
                 <img 
                   src={page.image} 
                   alt={page.pageTitle}
-                  className="w-full max-w-2xl mx-auto rounded-lg shadow-md mt-2"
+                  className="w-full max-w-2xl mx-auto rounded-lg shadow-md"
                   onError={(e) => {
                     console.error("Failed to load image:", page.image);
-                    e.currentTarget.style.display = 'none';
+                    const target = e.currentTarget as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.parentElement?.remove();
                   }}
                 />
-              </>
+              </div>
             )}
           </div>
         </div>
