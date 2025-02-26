@@ -24,22 +24,18 @@ const fetchPages = async (): Promise<Page[]> => {
   const jsonText = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/)[1];
   const json = JSON.parse(jsonText);
 
-  return json.table.rows.slice(1).map((row: any) => {
-    const imageUrl = row.c[4]?.v;
-    
-    return {
-      path: row.c[0]?.v || "",
-      menuTitle: row.c[1]?.v || "",
-      pageTitle: row.c[2]?.v || "",
-      content: row.c[3]?.v || "",
-      ...(imageUrl && { image: imageUrl })
-    };
-  });
+  return json.table.rows.slice(1).map((row: any) => ({
+    path: row.c[0]?.v || "",
+    menuTitle: row.c[1]?.v || "",
+    pageTitle: row.c[2]?.v || "",
+    content: row.c[3]?.v || "",
+    ...(row.c[4]?.v && { image: row.c[4]?.v })
+  }));
 };
 
 const DynamicPageRoute = () => {
   const { noteId } = useParams();
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [loadingStates, setLoadingStates] = useState<Record<string, boolean>>({});
   
   const { data: pages = [], isLoading } = useQuery({
     queryKey: ['notes-pages'],
@@ -48,25 +44,34 @@ const DynamicPageRoute = () => {
 
   const page = pages.find(p => p.path === noteId);
 
-  // Reset image loaded state when page changes
-  useEffect(() => {
-    console.log("Page changed, resetting image state");
-    setImageLoaded(false);
-  }, [noteId]);
+  const handleImageLoad = (imageUrl: string) => {
+    setLoadingStates(prev => ({
+      ...prev,
+      [imageUrl]: true
+    }));
+  };
 
-  // Pre-load the image
+  const handleImageError = (imageUrl: string) => {
+    console.error("Failed to load image:", imageUrl);
+    toast.error("לא הצלחנו לטעון את התמונה");
+    setLoadingStates(prev => ({
+      ...prev,
+      [imageUrl]: false
+    }));
+  };
+
+  // Pre-load image when page changes
   useEffect(() => {
     if (page?.image) {
+      setLoadingStates(prev => ({
+        ...prev,
+        [page.image!]: false
+      }));
+      
       console.log("Starting to load image:", page.image);
       const img = new Image();
-      img.onload = () => {
-        console.log("Image loaded successfully:", page.image);
-        setImageLoaded(true);
-      };
-      img.onerror = () => {
-        console.error("Failed to load image:", page.image);
-        toast.error("לא הצלחנו לטעון את התמונה");
-      };
+      img.onload = () => handleImageLoad(page.image!);
+      img.onerror = () => handleImageError(page.image!);
       img.src = page.image;
     }
   }, [page?.image]);
@@ -83,6 +88,8 @@ const DynamicPageRoute = () => {
     return <NotFound />;
   }
 
+  const isImageLoaded = page.image ? loadingStates[page.image] : false;
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-secondary/30 to-transparent pt-24 pb-12 px-4">
       <div className="w-full max-w-4xl mx-auto">
@@ -94,7 +101,7 @@ const DynamicPageRoute = () => {
             ))}
             {page.image && (
               <div className="mt-8 relative min-h-[200px]">
-                {!imageLoaded && (
+                {!isImageLoaded && (
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Loader2 className="w-8 h-8 animate-spin text-primary" />
                   </div>
@@ -102,7 +109,7 @@ const DynamicPageRoute = () => {
                 <img 
                   src={page.image} 
                   alt={page.pageTitle}
-                  className={`w-full max-w-2xl mx-auto rounded-lg shadow-md transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  className={`w-full max-w-2xl mx-auto rounded-lg shadow-md transition-opacity duration-300 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`}
                 />
               </div>
             )}
