@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import NotFound from "@/pages/NotFound";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "sonner";
 
 interface Page {
@@ -40,19 +40,36 @@ const fetchPages = async (): Promise<Page[]> => {
 const DynamicPageRoute = () => {
   const { noteId } = useParams();
   const [imageLoaded, setImageLoaded] = useState(false);
-  const loadedImagesRef = useRef<Set<string>>(new Set());
   
   const { data: pages = [], isLoading } = useQuery({
     queryKey: ['notes-pages'],
     queryFn: fetchPages
   });
 
+  const page = pages.find(p => p.path === noteId);
+
+  // Reset image loaded state when page changes
   useEffect(() => {
-    const page = pages.find(p => p.path === noteId);
+    console.log("Page changed, resetting image state");
+    setImageLoaded(false);
+  }, [noteId]);
+
+  // Pre-load the image
+  useEffect(() => {
     if (page?.image) {
-      setImageLoaded(loadedImagesRef.current.has(page.image));
+      console.log("Starting to load image:", page.image);
+      const img = new Image();
+      img.onload = () => {
+        console.log("Image loaded successfully:", page.image);
+        setImageLoaded(true);
+      };
+      img.onerror = () => {
+        console.error("Failed to load image:", page.image);
+        toast.error("לא הצלחנו לטעון את התמונה");
+      };
+      img.src = page.image;
     }
-  }, [noteId, pages]);
+  }, [page?.image]);
 
   if (isLoading) {
     return (
@@ -61,8 +78,6 @@ const DynamicPageRoute = () => {
       </div>
     );
   }
-
-  const page = pages.find(p => p.path === noteId);
 
   if (!page) {
     return <NotFound />;
@@ -88,18 +103,6 @@ const DynamicPageRoute = () => {
                   src={page.image} 
                   alt={page.pageTitle}
                   className={`w-full max-w-2xl mx-auto rounded-lg shadow-md transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-                  onLoad={() => {
-                    if (page.image) {
-                      loadedImagesRef.current.add(page.image);
-                      setImageLoaded(true);
-                    }
-                    console.log("Image loaded successfully");
-                  }}
-                  onError={(e) => {
-                    console.error("Failed to load image:", page.image);
-                    toast.error("לא הצלחנו לטעון את התמונה");
-                    e.currentTarget.style.display = 'none';
-                  }}
                 />
               </div>
             )}
