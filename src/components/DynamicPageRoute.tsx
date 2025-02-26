@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import NotFound from "@/pages/NotFound";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { toast } from "sonner";
 
 interface Page {
@@ -40,6 +40,7 @@ const fetchPages = async (): Promise<Page[]> => {
 const DynamicPageRoute = () => {
   const { noteId } = useParams();
   const [imageLoaded, setImageLoaded] = useState(false);
+  const loadedImagesRef = useRef<Set<string>>(new Set());
   
   const { data: pages = [], isLoading } = useQuery({
     queryKey: ['notes-pages'],
@@ -47,8 +48,11 @@ const DynamicPageRoute = () => {
   });
 
   useEffect(() => {
-    setImageLoaded(false);
-  }, [noteId]);
+    const page = pages.find(p => p.path === noteId);
+    if (page?.image) {
+      setImageLoaded(loadedImagesRef.current.has(page.image));
+    }
+  }, [noteId, pages]);
 
   if (isLoading) {
     return (
@@ -83,10 +87,13 @@ const DynamicPageRoute = () => {
                 <img 
                   src={page.image} 
                   alt={page.pageTitle}
-                  className={`w-full max-w-2xl mx-auto rounded-lg shadow-md transition-all duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  className={`w-full max-w-2xl mx-auto rounded-lg shadow-md transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                   onLoad={() => {
+                    if (page.image) {
+                      loadedImagesRef.current.add(page.image);
+                      setImageLoaded(true);
+                    }
                     console.log("Image loaded successfully");
-                    setImageLoaded(true);
                   }}
                   onError={(e) => {
                     console.error("Failed to load image:", page.image);
