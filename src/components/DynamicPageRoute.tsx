@@ -3,7 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import NotFound from "@/pages/NotFound";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { toast } from "sonner";
 
 interface Page {
   path: string;
@@ -24,7 +25,6 @@ const fetchPages = async (): Promise<Page[]> => {
   const json = JSON.parse(jsonText);
 
   return json.table.rows.slice(1).map((row: any) => {
-    // בדיקה האם יש ערך בתא החמישי (אינדקס 4)
     const imageUrl = row.c[4]?.v;
     
     return {
@@ -32,7 +32,6 @@ const fetchPages = async (): Promise<Page[]> => {
       menuTitle: row.c[1]?.v || "",
       pageTitle: row.c[2]?.v || "",
       content: row.c[3]?.v || "",
-      // רק אם יש URL תקין נוסיף אותו
       ...(imageUrl && { image: imageUrl })
     };
   });
@@ -40,13 +39,16 @@ const fetchPages = async (): Promise<Page[]> => {
 
 const DynamicPageRoute = () => {
   const { noteId } = useParams();
-  const [imageError, setImageError] = useState(false);
-  const [imageLoading, setImageLoading] = useState(true);
+  const [imageLoaded, setImageLoaded] = useState(false);
   
   const { data: pages = [], isLoading } = useQuery({
     queryKey: ['notes-pages'],
     queryFn: fetchPages
   });
+
+  useEffect(() => {
+    setImageLoaded(false);
+  }, [noteId]);
 
   if (isLoading) {
     return (
@@ -71,9 +73,9 @@ const DynamicPageRoute = () => {
             {page.content.split('\n').map((paragraph, index) => (
               <p key={index} className="mb-4">{paragraph}</p>
             ))}
-            {page.image && !imageError && (
-              <div className="mt-8 space-y-2 relative">
-                {imageLoading && (
+            {page.image && (
+              <div className="mt-8 relative min-h-[200px]">
+                {!imageLoaded && (
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Loader2 className="w-8 h-8 animate-spin text-primary" />
                   </div>
@@ -81,15 +83,15 @@ const DynamicPageRoute = () => {
                 <img 
                   src={page.image} 
                   alt={page.pageTitle}
-                  className={`w-full max-w-2xl mx-auto rounded-lg shadow-md transition-opacity duration-300 ${imageLoading ? 'opacity-0' : 'opacity-100'}`}
+                  className={`w-full max-w-2xl mx-auto rounded-lg shadow-md transition-all duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                   onLoad={() => {
                     console.log("Image loaded successfully");
-                    setImageLoading(false);
+                    setImageLoaded(true);
                   }}
                   onError={(e) => {
                     console.error("Failed to load image:", page.image);
-                    setImageError(true);
-                    setImageLoading(false);
+                    toast.error("לא הצלחנו לטעון את התמונה");
+                    e.currentTarget.style.display = 'none';
                   }}
                 />
               </div>
