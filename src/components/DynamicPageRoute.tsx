@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import NotFound from "@/pages/NotFound";
+import { useState } from "react";
 
 interface Page {
   path: string;
@@ -39,6 +40,8 @@ const fetchPages = async (): Promise<Page[]> => {
 
 const DynamicPageRoute = () => {
   const { noteId } = useParams();
+  const [imageError, setImageError] = useState(false);
+  const [imageLoading, setImageLoading] = useState(true);
   
   const { data: pages = [], isLoading } = useQuery({
     queryKey: ['notes-pages'],
@@ -68,17 +71,25 @@ const DynamicPageRoute = () => {
             {page.content.split('\n').map((paragraph, index) => (
               <p key={index} className="mb-4">{paragraph}</p>
             ))}
-            {page.image && (
-              <div className="mt-8 space-y-2">
+            {page.image && !imageError && (
+              <div className="mt-8 space-y-2 relative">
+                {imageLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                  </div>
+                )}
                 <img 
                   src={page.image} 
                   alt={page.pageTitle}
-                  className="w-full max-w-2xl mx-auto rounded-lg shadow-md"
+                  className={`w-full max-w-2xl mx-auto rounded-lg shadow-md transition-opacity duration-300 ${imageLoading ? 'opacity-0' : 'opacity-100'}`}
+                  onLoad={() => {
+                    console.log("Image loaded successfully");
+                    setImageLoading(false);
+                  }}
                   onError={(e) => {
                     console.error("Failed to load image:", page.image);
-                    const target = e.currentTarget as HTMLImageElement;
-                    target.style.display = 'none';
-                    target.parentElement?.remove();
+                    setImageError(true);
+                    setImageLoading(false);
                   }}
                 />
               </div>
