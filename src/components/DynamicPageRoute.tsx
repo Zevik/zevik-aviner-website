@@ -9,6 +9,7 @@ interface Page {
   menuTitle: string;
   pageTitle: string;
   content: string;
+  image?: string;
 }
 
 const fetchPages = async (): Promise<Page[]> => {
@@ -25,7 +26,8 @@ const fetchPages = async (): Promise<Page[]> => {
     path: row.c[0]?.v || "",
     menuTitle: row.c[1]?.v || "",
     pageTitle: row.c[2]?.v || "",
-    content: row.c[3]?.v || ""
+    content: row.c[3]?.v || "",
+    image: row.c[4]?.v || ""
   }));
 };
 
@@ -60,6 +62,13 @@ const DynamicPageRoute = () => {
             {page.content.split('\n').map((paragraph, index) => (
               <p key={index} className="mb-4">{paragraph}</p>
             ))}
+            {page.image && (
+              <img 
+                src={page.image} 
+                alt={page.pageTitle}
+                className="w-full max-w-2xl mx-auto rounded-lg shadow-md mt-8"
+              />
+            )}
           </div>
         </div>
       </div>
