@@ -1,4 +1,5 @@
-import { Facebook, Globe, Users, BookOpen, FileText, Wolf } from "lucide-react";
+
+import { Facebook, Globe, Users, BookOpen, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const categories = [
