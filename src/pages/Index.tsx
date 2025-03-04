@@ -1,3 +1,4 @@
+
 import { Facebook, Globe, Users, BookOpen, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -55,7 +56,7 @@ const Index = () => {
           {/* GIF Section - Added per request */}
           <div className="flex justify-center mt-6 mb-12">
             <img 
-              src="https://i.giphy.com/media/bb382QwrdP0kRuF0YJ/giphy.gif" 
+              src="https://s3.gifyu.com/images/bb382.gif" 
               alt="אנימציה" 
               className="max-w-full w-auto h-auto max-h-64 rounded-lg shadow-md animate-fadeIn"
               style={{ animationDelay: "0.4s" }}
