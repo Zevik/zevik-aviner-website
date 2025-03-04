@@ -1,4 +1,4 @@
-import { Facebook, Globe, Users, BookOpen, FileText } from "lucide-react";
+import { Facebook, Globe, Users, BookOpen, FileText, Wolf } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const categories = [
@@ -43,17 +43,17 @@ const Index = () => {
   return (
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
-      <section className="classic-section bg-gradient-to-b from-secondary/30 to-transparent py-8">
+      <section className="classic-section bg-gradient-to-b from-secondary/30 to-transparent py-4">
         <div className="classic-container text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fadeIn">
             קהילות, אוטומציות ובינה מלאכותית
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
+          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-6 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
             מאמרים, טיפים, תוכנות וסדנאות
           </p>
           
           {/* GIF Section - Added per request */}
-          <div className="flex justify-center mt-6 mb-8">
+          <div className="flex justify-center mt-4 mb-4">
             <img 
               src="https://s3.gifyu.com/images/bb382.gif" 
               alt="אנימציה" 
@@ -65,9 +65,9 @@ const Index = () => {
       </section>
 
       {/* Categories Grid */}
-      <section className="classic-section py-8">
+      <section className="classic-section py-4">
         <div className="classic-container">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
             תוכן האתר
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
