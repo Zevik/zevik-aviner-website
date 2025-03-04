@@ -1,4 +1,3 @@
-
 import { Facebook, Globe, Users, BookOpen, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -44,7 +43,7 @@ const Index = () => {
   return (
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
-      <section className="classic-section bg-gradient-to-b from-secondary/30 to-transparent">
+      <section className="classic-section bg-gradient-to-b from-secondary/30 to-transparent py-8">
         <div className="classic-container text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fadeIn">
             קהילות, אוטומציות ובינה מלאכותית
@@ -66,7 +65,7 @@ const Index = () => {
       </section>
 
       {/* Categories Grid */}
-      <section className="classic-section">
+      <section className="classic-section py-8">
         <div className="classic-container">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             תוכן האתר
