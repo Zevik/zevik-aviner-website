@@ -54,7 +54,7 @@ const Index = () => {
           </p>
           
           {/* GIF Section - Added per request */}
-          <div className="flex justify-center mt-6 mb-12">
+          <div className="flex justify-center mt-6 mb-8">
             <img 
               src="https://s3.gifyu.com/images/bb382.gif" 
               alt="אנימציה" 
@@ -69,7 +69,7 @@ const Index = () => {
       <section className="classic-section">
         <div className="classic-container">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            התוכן שלנו
+            תוכן האתר
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.map((category, index) => (
