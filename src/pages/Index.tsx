@@ -1,4 +1,3 @@
-
 import { Facebook, Globe, Users, BookOpen, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -52,6 +51,16 @@ const Index = () => {
           <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
             מאמרים, טיפים, תוכנות וסדנאות
           </p>
+          
+          {/* GIF Section - Added per request */}
+          <div className="flex justify-center mt-6 mb-12">
+            <img 
+              src="https://i.giphy.com/media/bb382QwrdP0kRuF0YJ/giphy.gif" 
+              alt="אנימציה" 
+              className="max-w-full w-auto h-auto max-h-64 rounded-lg shadow-md animate-fadeIn"
+              style={{ animationDelay: "0.4s" }}
+            />
+          </div>
         </div>
       </section>
 
