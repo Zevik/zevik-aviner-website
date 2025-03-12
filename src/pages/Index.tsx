@@ -98,12 +98,18 @@ const Index = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             מאמרים אחרונים
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Link 
               to="/ai/era"
               className="content-box bg-white hover:scale-105 transition-all duration-300 animate-fadeIn"
             >
-              <div className="aspect-video bg-gray-100 rounded-md mb-4"></div>
+              <div className="aspect-video bg-gray-100 rounded-md mb-4 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=600&q=80" 
+                  alt="עידן הבינה המלאכותית" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <h3 className="text-xl font-bold">עידן הבינה המלאכותית</h3>
               <p className="text-gray-600">האם אנחנו באמת מבינים את גודל השינוי שעומד בפתח?</p>
             </Link>
@@ -111,7 +117,13 @@ const Index = () => {
               to="/ai/job-market"
               className="content-box bg-white hover:scale-105 transition-all duration-300 animate-fadeIn"
             >
-              <div className="aspect-video bg-gray-100 rounded-md mb-4"></div>
+              <div className="aspect-video bg-gray-100 rounded-md mb-4 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" 
+                  alt="השלכות AI על שוק התעסוקה" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <h3 className="text-xl font-bold">השלכות AI על שוק התעסוקה</h3>
               <p className="text-gray-600">מה צופים המחקרים העדכניים ביותר לגבי עתיד התעסוקה?</p>
             </Link>
@@ -119,9 +131,29 @@ const Index = () => {
               to="/communities/insights"
               className="content-box bg-white hover:scale-105 transition-all duration-300 animate-fadeIn"
             >
-              <div className="aspect-video bg-gray-100 rounded-md mb-4"></div>
+              <div className="aspect-video bg-gray-100 rounded-md mb-4 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=600&q=80" 
+                  alt="תובנות בניהול קהילות" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <h3 className="text-xl font-bold">תובנות בניהול קהילות</h3>
               <p className="text-gray-600">איך מנהלים קהילה מצליחה בעידן הדיגיטלי?</p>
+            </Link>
+            <Link 
+              to="/ai/tools"
+              className="content-box bg-white hover:scale-105 transition-all duration-300 animate-fadeIn"
+            >
+              <div className="aspect-video bg-gray-100 rounded-md mb-4 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" 
+                  alt="כלי AI לשימוש יומיומי" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-xl font-bold">כלי AI לשימוש יומיומי</h3>
+              <p className="text-gray-600">סקירת כלים שימושיים המבוססים על בינה מלאכותית</p>
             </Link>
           </div>
         </div>
