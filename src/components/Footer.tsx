@@ -12,7 +12,7 @@ const Footer = () => {
               ניהול וייעוץ לקהילות דיגיטליות
             </p>
             <p className="text-gray-600 mt-2">
-              כלים, מאמרים וידע מקצועי לניהול קהילות
+              כלים, אוטומציות, בינה מלאכותית, מאמרים וידע מקצועי לניהול קהילות
             </p>
           </div>
           <div>
@@ -23,9 +23,6 @@ const Footer = () => {
               </Link>
               <Link to="/about" className="block text-gray-600 hover:text-primary transition-colors">
                 אודות
-              </Link>
-              <Link to="/contact" className="block text-gray-600 hover:text-primary transition-colors">
-                צור קשר
               </Link>
             </div>
           </div>
