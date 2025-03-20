@@ -179,7 +179,7 @@ const Sugar = () => {
                   <tr>
                     <td className="border border-gray-300 px-4 py-2">אפייה/צלייה</td>
                     <td className="border border-gray-300 px-4 py-2">בטטה אפויה</td>
-                    <td className="border border-gray-300 px-4 py-2">GI גבוה ב-80%-90%</td>
+                    <td className="border border-gray-300 px-4 py-2">GI גבוה ב-80% עד 90%</td>
                     <td className="border border-gray-300 px-4 py-2">קלה</td>
                   </tr>
                   <tr>
@@ -191,7 +191,7 @@ const Sugar = () => {
                   <tr>
                     <td className="border border-gray-300 px-4 py-2">קירור לאחר בישול</td>
                     <td className="border border-gray-300 px-4 py-2">אורז מבושל שקורר במקרר</td>
-                    <td className="border border-gray-300 px-4 py-2">ירידה של 10%-15% ב-GI</td>
+                    <td className="border border-gray-300 px-4 py-2">ירידה של 10% עד 15% ב-GI</td>
                     <td className="border border-gray-300 px-4 py-2">קלה</td>
                   </tr>
                   <tr className="bg-gray-50">
@@ -200,7 +200,7 @@ const Sugar = () => {
                   <tr>
                     <td className="border border-gray-300 px-4 py-2">ירקות וחלבון לפני פחמימות</td>
                     <td className="border border-gray-300 px-4 py-2">סלט וחזה עוף לפני אורז</td>
-                    <td className="border border-gray-300 px-4 py-2">ירידה של 30%-40% בתגובת הסוכר</td>
+                    <td className="border border-gray-300 px-4 py-2">ירידה של 30% עד 40% בתגובת הסוכר</td>
                     <td className="border border-gray-300 px-4 py-2">קלה מאוד</td>
                   </tr>
                   <tr>
@@ -221,19 +221,19 @@ const Sugar = () => {
                   <tr>
                     <td className="border border-gray-300 px-4 py-2">הוספת שומן בריא לפחמימות</td>
                     <td className="border border-gray-300 px-4 py-2">אבוקדו על לחם</td>
-                    <td className="border border-gray-300 px-4 py-2">ירידה של 15%-20% בתגובת הסוכר</td>
+                    <td className="border border-gray-300 px-4 py-2">ירידה של 15% עד 20% בתגובת הסוכר</td>
                     <td className="border border-gray-300 px-4 py-2">קלה מאוד</td>
                   </tr>
                   <tr>
                     <td className="border border-gray-300 px-4 py-2">הוספת סיבים לפחמימות</td>
                     <td className="border border-gray-300 px-4 py-2">זרעי פשתן בדייסה</td>
-                    <td className="border border-gray-300 px-4 py-2">ירידה של 10%-15% בתגובת הסוכר</td>
+                    <td className="border border-gray-300 px-4 py-2">ירידה של 10% עד 15% בתגובת הסוכר</td>
                     <td className="border border-gray-300 px-4 py-2">קלה</td>
                   </tr>
                   <tr>
                     <td className="border border-gray-300 px-4 py-2">הוספת חומץ לארוחה</td>
                     <td className="border border-gray-300 px-4 py-2">רוטב סלט עם חומץ</td>
-                    <td className="border border-gray-300 px-4 py-2">ירידה של 10%-20% בתגובת הסוכר</td>
+                    <td className="border border-gray-300 px-4 py-2">ירידה של 10% עד 20% בתגובת הסוכר</td>
                     <td className="border border-gray-300 px-4 py-2">קלה</td>
                   </tr>
                   <tr className="bg-gray-50">
@@ -248,7 +248,7 @@ const Sugar = () => {
                   <tr>
                     <td className="border border-gray-300 px-4 py-2">פחמימות בערב</td>
                     <td className="border border-gray-300 px-4 py-2">פסטה בארוחת ערב</td>
-                    <td className="border border-gray-300 px-4 py-2">תגובת סוכר גבוהה ב-20%-30%</td>
+                    <td className="border border-gray-300 px-4 py-2">תגובת סוכר גבוהה ב-20% עד 30%</td>
                     <td className="border border-gray-300 px-4 py-2">קלה</td>
                   </tr>
                   <tr>
