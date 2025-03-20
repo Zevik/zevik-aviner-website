@@ -100,7 +100,7 @@ const DesktopNav = ({
     { to: "/articles/war-on-stereotypical-language", label: "מלחמה בשפה סטריאוטיפית" },
     { to: "/articles/the-haredim", label: "אז מי הם באמת החרדים?" },
     { to: "/articles/language-of-stereotypes", label: "שפת הסטריאוטיפים" },
-    { to: "/articles/thoughts", label: "מחשבות" },
+    { to: "/articles/sugar", label: "סוכר וערך גליקמי" },
   ];
 
   const independentLinks = [
